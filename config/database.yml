@@ -1,0 +1,31 @@
+production:
+  adapter: mysql2
+  database: npweb
+  host: localhost
+  username: ruby
+  password: ian.is.1.cute.b@y
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: mysql2
+  database: npweb
+  host: localhost
+  username: ruby
+  password: ian.is.1.cute.b@y
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: mysql2
+  database: npweb
+  host: localhost
+  username: ruby
+  password: ian.is.1.cute.b@y  
+  encoding: utf8
+  reconnect: false
+  pool: 55000

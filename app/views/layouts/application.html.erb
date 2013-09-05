@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>宁优网</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <h3>
+      宁优网
+      <small>只为好产品代言</small>
+      <div class="pull-right">
+        <a class="btn btn-link" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
+        <a class="btn btn-link" data-toggle="modal" href="#registerModal">注册</a>
+        <!--login modal-->
+        <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">用户登录</h3>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <fieldset>
+                <div class="controls-groups">
+                  <label class="control-label" for="username">用户名</label>
+                  <div class="controls">
+                    <input id="username" type="text" placeholder="用户名">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <label class="control-label" for="password">密码</label>
+                  <div class="controls">
+                    <input id="password" type="password" placeholder="密码">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <div class="controls">
+                    <label class="checkbox">
+                      <input id="remember" type="checkbox" value="remeber">remeber me
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer centered">
+            <button type="button" class="btn btn-primary">登录</button>
+          </div>
+        </div>
+        <!--register modal-->
+         <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="registerLabel">新用户注册</h3>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <fieldset>
+                <div class="controls-groups">
+                  <label class="control-label" for="username">用户名</label>
+                  <div class="controls">
+                    <input id="username" type="text" placeholder="用户名">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <label class="control-label" for="password">密码</label>
+                  <div class="controls">
+                    <input id="password" type="password" placeholder="密码">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <label class="control-label" for="password">再次确认密码</label>
+                  <div class="controls">
+                    <input id="password" type="password" placeholder="确认密码">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <label class="control-label" for="mailbox">注册邮箱</label>
+                  <div class="controls">
+                    <input id="mailbox" type="text" placeholder="注册邮箱">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <label class="control-label" for="cellphone">手机号码</label>
+                  <div class="controls">
+                    <input id="cellphone" type="text" placeholder="手机号码">
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">注册</button>
+          </div>
+        </div>
+      </div>
+    </h3>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <%=link_to "宁优", root_path, class:"brand" %>
+      <ul class="nav">
+        <li><%=link_to "首页", root_path %></li>
+        <li><a href="">美食</a></li>
+        <li><a href="">教育</a></li>
+        <li><a href="">服务</a></li>
+        <li><a href="">生活</a></li>
+      </ul>
+
+      <form class="navbar-search">
+        <input class="search-query" type="text" placeholder="Search">
+      </form>
+    </div>
+  </div>
+
+  <%= yield %>
+
+  
+</div>
+<footer class="footer">
+  <div class="container">
+    <p>Designed and build by <a href="http://www.boyishwei.org" target="_blank">Ryan Jiang</a> & Hao, Zhang</p>
+    <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
+    <p>Copyright &copy; 2013 宁夏滴光科技有限公司 </p>
+    <ul class="footer-links">
+      <li><%=link_to "关于", about_path%><!--<a href="#">关于</a>--></li>
+      <li class="muted">·</li>
+      <li><%=link_to "联系我们", contact_path%></li>
+      <li class="muted">·</li>
+      <li><%=link_to "招聘", recruit_path%></li>
+      <li class="muted">·</li>
+      <li><%=link_to "宁ICP备13000608号", ba_path%></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
