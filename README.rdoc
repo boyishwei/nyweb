@@ -1,0 +1,6 @@
+tree 9083209eccac3012406590cf69dd8fdcb0da7b3e
+parent 061a094282c95ba939b3d71f245c28fc45739cc2
+author boyishwei <boyishwei@gmail.com> 1378389219 -0700
+committer boyishwei <boyishwei@gmail.com> 1378389219 -0700
+
+delete README

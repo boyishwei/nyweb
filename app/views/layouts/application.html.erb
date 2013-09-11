@@ -7,14 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <div class="page-header">
-    <h3>
-      宁优网
-      <small>只为好产品代言</small>
-      <div class="pull-right">
-        <a class="btn btn-link" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
-        <a class="btn btn-link" data-toggle="modal" href="#registerModal">注册</a>
+<div class="bg-header">
+ <div class="container">
+  <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item"><img src="http://placehold.it/1170x500" /></div>
+        <div class="item"><img src="http://placehold.it/1170x500" /></div>
+        <div class="item"><img src="http://placehold.it/1170x500" /></div>                         
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  </div>  
+</div>  
+  <div class="navbar navbar-static-top" data-spy="affix" data-offset-top="520">
+    <div class="navbar-inner">
+      <div class="container">
+        <%=link_to "宁优", root_path, class:"brand" %>
+        <ul class="nav">
+          <li><%=link_to "首页", root_path %></li>
+          <li><a href="">美食</a></li>
+          <li><a href="">教育</a></li>
+          <li><a href="">服务</a></li>
+          <li><a href="">生活</a></li>
+        </ul>
+
+        <form class="navbar-search">
+          <input class="search-query" type="text" placeholder="Search">
+        </form>
+        <div class="pull-right">
+        <a class="btn btn-info" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
+        <a class="btn btn-warning" data-toggle="modal" href="#registerModal">注册</a>
         <!--login modal-->
         <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-header">
@@ -25,14 +55,15 @@
             <form class="form-horizontal">
               <fieldset>
                 <div class="controls-groups">
-                  <label class="control-label" for="username">用户名</label>
-                  <div class="controls">
+                  <div class="controls input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
                     <input id="username" type="text" placeholder="用户名">
                   </div>
                 </div>
+                <br>
                 <div class="controls-groups">
-                  <label class="control-label" for="password">密码</label>
-                  <div class="controls">
+                  <div class="controls  input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>
                     <input id="password" type="password" placeholder="密码">
                   </div>
                 </div>
@@ -60,33 +91,49 @@
             <form class="form-horizontal">
               <fieldset>
                 <div class="controls-groups">
-                  <label class="control-label" for="username">用户名</label>
+                  <label class="control-label" for="username">用户名<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                   <div class="controls">
                     <input id="username" type="text" placeholder="用户名">
                   </div>
                 </div>
+                <br>
                 <div class="controls-groups">
-                  <label class="control-label" for="password">密码</label>
+                  <label class="control-label" for="password">密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                   <div class="controls">
                     <input id="password" type="password" placeholder="密码">
                   </div>
                 </div>
+                <br>
                 <div class="controls-groups">
-                  <label class="control-label" for="password">再次确认密码</label>
+                  <label class="control-label" for="password">再次确认密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                   <div class="controls">
                     <input id="password" type="password" placeholder="确认密码">
                   </div>
                 </div>
+                <br>
                 <div class="controls-groups">
-                  <label class="control-label" for="mailbox">注册邮箱</label>
+                  <label class="control-label" for="mailbox">注册邮箱<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                   <div class="controls">
                     <input id="mailbox" type="text" placeholder="注册邮箱">
                   </div>
                 </div>
+                <br>
                 <div class="controls-groups">
-                  <label class="control-label" for="cellphone">手机号码</label>
+                  <label class="control-label" for="cellphone">手机号码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                   <div class="controls">
                     <input id="cellphone" type="text" placeholder="手机号码">
+                  </div>
+                </div>
+                <div class="controls-groups">
+                  <div class="controls">
+                    <button type="button" class="btn">发送验证码</button>
+                  </div>
+                </div>
+                <br>
+                <div class="controls-groups">
+                  <label class="control-label" for="cellphone">验证码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                  <div class="controls">
+                    <input id="cellphone" type="text" placeholder="验证码">
                   </div>
                 </div>
               </fieldset>
@@ -97,32 +144,21 @@
           </div>
         </div>
       </div>
-    </h3>
-  </div>
-  <div class="navbar">
-    <div class="navbar-inner">
-      <%=link_to "宁优", root_path, class:"brand" %>
-      <ul class="nav">
-        <li><%=link_to "首页", root_path %></li>
-        <li><a href="">美食</a></li>
-        <li><a href="">教育</a></li>
-        <li><a href="">服务</a></li>
-        <li><a href="">生活</a></li>
-      </ul>
-
-      <form class="navbar-search">
-        <input class="search-query" type="text" placeholder="Search">
-      </form>
+      </div>
     </div>
   </div>
+<div class="container">
+  <div class="page-header">
+  </div>
 
-  <%= yield %>
+  
 
   
 </div>
+<%= yield %>
 <footer class="footer">
   <div class="container">
-    <p>Designed and build by <a href="http://www.boyishwei.org" target="_blank">Ryan Jiang</a> & Hao, Zhang</p>
+    <p>Designed and build by <a href="http://www.boyishwei.com" target="_blank">Ryan Jiang</a> & Hao, Zhang</p>
     <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
     <p>Copyright &copy; 2013 宁夏滴光科技有限公司 </p>
     <ul class="footer-links">
