@@ -7,7 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'bootstrap-sass'
 gem 'mysql2'
-
+#gem 'rails-bootstrap','~> 3.0.0.1'
+#gem 'bootstrap3-rails'
+#gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 #gem 'sqlite3'
 
 
