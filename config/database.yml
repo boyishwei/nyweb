@@ -1,6 +1,6 @@
 production:
   adapter: mysql2
-  database: npweb
+  database: nyweb
   host: localhost
   username: ruby
   password: ian.is.1.cute.b@y
@@ -11,10 +11,10 @@ production:
 
 development:
   adapter: mysql2
-  database: npweb
+  database: nyweb
   host: localhost
-  username: ruby
-  password: ian.is.1.cute.b@y
+  username: root
+  password: 1qaz2wsx
   encoding: utf8
   reconnect: false
   pool: 5
@@ -22,7 +22,7 @@ development:
 
 test:
   adapter: mysql2
-  database: npweb
+  database: nyweb
   host: localhost
   username: ruby
   password: ian.is.1.cute.b@y  

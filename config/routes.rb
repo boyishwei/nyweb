@@ -1,4 +1,7 @@
 Nyweb::Application.routes.draw do
+  resources :users
+
+
   get "pub/index"
 
   root to: 'pub#index'  
