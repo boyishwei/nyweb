@@ -2,14 +2,75 @@
 <html>
 <head>
   <title>宁优网</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media =>
+  "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
+  <%= csrf_meta_tags %></head>
 <body>
-<div class="bg-header">
- <div class="container">
-  <div id="myCarousel" class="carousel slide">
+  <!--main div-->
+  <div class="container">
+    <!--page header-->
+    <div class="row-fluid">
+      <div class="span3">
+        <a href="#">宁优网 www.0951goods.com</a>
+        <br>
+        <p>只为好产品代言</p>
+      </div>
+      <div class="span9">
+        <img class="img-rounded" src="http://placehold.it/870x150" alt="prod_show" />
+      </div>
+    </div>
+    <!--nav bar-->
+    <div>
+      <table class="table nav-table">
+        <tbody>
+          <tr>
+            <td class="nav-td">导航</td>
+            <td>
+              <a href="#">教育培训</a>
+            </td>
+            <td>
+              <a href="#">美食餐饮</a>
+            </td>
+            <td>
+              <a href="#">宁优网上商城</a>
+            </td>
+            <td>
+              <a href="#">宁优说说</a>
+            </td>
+            <td></td>
+            <td rowspan="2" colspan="2">
+              <a href="#" class="btn btn-large">发布需求</a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-info">登录</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-warning">注册</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="nav-td">热门标签</td>
+            <td>
+              <a href="#">宁夏文化节</a>
+            </td>
+            <td colspan="3">
+              <a href="#">宁夏大学第10届文化体育节</a>
+            </td>
+            <td></td>
+            <td colspan="2">
+              <button type="button" class="btn btn-warning">添加到桌面</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <p class="text-center p-bg"> <strong>感谢美好的企业与个人提供的美好服务</strong>
+      </p>
+    </div>
+    <!--Carousel-->
+    <div class="Carousel">
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -17,160 +78,103 @@
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
-        <div class="active item"><img src="http://placehold.it/1170x500" /></div>
-        <div class="item"><img src="http://placehold.it/1170x500" /></div>
-        <div class="item"><img src="http://placehold.it/1170x500" /></div>                         
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-  </div>  
-</div>  
-  <div class="navbar navbar-static-top" data-spy="affix" data-offset-top="520">
-    <div class="navbar-inner">
-      <div class="container">
-        <%=link_to "宁优", root_path, class:"brand" %>
-        <ul class="nav">
-          <li><%=link_to "首页", root_path %></li>
-          <li><a href="">美食</a></li>
-          <li><a href="">教育</a></li>
-          <li><a href="">服务</a></li>
-          <li><a href="">生活</a></li>
-        </ul>
-
-        <form class="navbar-search">
-          <input class="search-query" type="text" placeholder="Search">
-        </form>
-        <div class="pull-right">
-        <a class="btn btn-info" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
-        <a class="btn btn-warning" data-toggle="modal" href="#registerModal">注册</a>
-        <!--login modal-->
-        <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">用户登录</h3>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal">
-              <fieldset>
-                <div class="controls-groups">
-                  <div class="controls input-prepend">
-                    <span class="add-on"><i class="icon-user"></i></span>
-                    <input id="username" type="text" placeholder="用户名">
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <div class="controls  input-prepend">
-                    <span class="add-on"><i class="icon-lock"></i></span>
-                    <input id="password" type="password" placeholder="密码">
-                  </div>
-                </div>
-                <div class="controls-groups">
-                  <div class="controls">
-                    <label class="checkbox">
-                      <input id="remember" type="checkbox" value="remeber">remeber me
-                    </label>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="modal-footer centered">
-            <button type="button" class="btn btn-primary">登录</button>
-          </div>
+        <div class="active item">
+          <img src="http://placehold.it/1170x300" alt="prod_show" />
         </div>
-        <!--register modal-->
-         <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="registerLabel">新用户注册</h3>
-          </div>
-          <div class="modal-body">
-            <form class="form-horizontal">
-              <fieldset>
-                <div class="controls-groups">
-                  <label class="control-label" for="username">用户名<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="username" type="text" placeholder="用户名">
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <label class="control-label" for="password">密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="password" type="password" placeholder="密码">
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <label class="control-label" for="password">再次确认密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="password" type="password" placeholder="确认密码">
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <label class="control-label" for="mailbox">注册邮箱<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="mailbox" type="text" placeholder="注册邮箱">
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <label class="control-label" for="cellphone">手机号码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="cellphone" type="text" placeholder="手机号码">
-                  </div>
-                </div>
-                <div class="controls-groups">
-                  <div class="controls">
-                    <button type="button" class="btn">发送验证码</button>
-                  </div>
-                </div>
-                <br>
-                <div class="controls-groups">
-                  <label class="control-label" for="cellphone">验证码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
-                  <div class="controls">
-                    <input id="cellphone" type="text" placeholder="验证码">
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">注册</button>
-          </div>
+        <div class="item">
+          <img src="http://placehold.it/1170x300" alt="prod_show" />
+        </div>
+        <div class="item">
+          <img src="http://placehold.it/1170x300" alt="prod_show" />
         </div>
       </div>
+    </div>
+    <br>
+    <!--declaration-->
+    <div>
+      <table class="table nav-table">
+        <tr>
+          <td class="nav-td">我们的使命</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="nav-td">联系我们</td>
+          <td>
+            电话： 0951-5102315 Email：nxcome@163.com 在线客服：
+            <button type="button" class="btn btn-default">QQ</button>
+            <button type="button" class="btn btn-default">QQ</button>
+            <button type="button" class="btn btn-default">QQ</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!--modules-->
+    <div class="container">
+      <legend>教育培训</legend>
+      <div class="modules inline-block">
+        <div class="trademark inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-content inline-block">
+          <img src="http://placehold.it/585x300" alt="prod_show" />
+        </div>
+        <div class="module-serv inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-enter inline-block">
+          <button type="button" class="btn btn-large">进入教育板块</button>
+        </div>
       </div>
     </div>
-  </div>
-<div class="container">
-  <div class="page-header">
-  </div>
+    <div class="container">
+      <legend>餐饮美食</legend>
+      <div class="modules inline-block">
+        <div class="trademark inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-content inline-block">
+          <img src="http://placehold.it/585x300" alt="prod_show" />
+        </div>
+        <div class="module-serv inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-enter inline-block">
+          <button type="button" class="btn btn-large">进入教育板块</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <legend>宁优网上商城</legend>
+      <div class="modules inline-block">
+        <div class="trademark inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-content inline-block">
+          <img src="http://placehold.it/585x300" alt="prod_show" />
+        </div>
+        <div class="module-serv inline-block">
+          <img src="http://placehold.it/234x300" alt="prod_show" />
+        </div>
+        <div class="module-enter inline-block">
+          <button type="button" class="btn btn-large">进入教育板块</button>
+        </div>
+      </div>
+    </div>
+    <!--mirco post-->
+    <div class="micro-post">
+      <legend>宁夏说说</legend>
 
-  
-
-  
-</div>
-<%= yield %>
-<footer class="footer">
-  <div class="container">
-    <p>Designed and build by <a href="http://www.boyishwei.com" target="_blank">Ryan Jiang</a> & Hao, Zhang</p>
-    <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
-    <p>Copyright &copy; 2013 宁夏滴光科技有限公司 </p>
-    <ul class="footer-links">
-      <li><%=link_to "关于", about_path%><!--<a href="#">关于</a>--></li>
-      <li class="muted">·</li>
-      <li><%=link_to "联系我们", contact_path%></li>
-      <li class="muted">·</li>
-      <li><%=link_to "招聘", recruit_path%></li>
-      <li class="muted">·</li>
-      <li><%=link_to "宁ICP备13000608号", ba_path%></li>
-    </ul>
+    </div>
+    <!--requirement publish-->
+    <div class="requirements">
+      <legend>需求专区</legend>
+      <div>
+        <p>数学辅导</p>
+      </div>
+    </div>
+    <!--footer-->
+    <div></div>
   </div>
-</footer>
 </body>
 </html>
