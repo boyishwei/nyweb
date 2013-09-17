@@ -71,7 +71,8 @@ color: #999;
 }
 
 .modules{
-
+	margin-top: 60px;
+	margin-bottom: 60px;
 }
 
 .trademark{
@@ -96,58 +97,44 @@ color: #999;
 
 .micro-post{
 	height:  250px;
+	border: solid 2px red;
+	width: 90%;
 }
 
 .requirements{
-	border: 2px;
+	border: solid 2px red;
 	height:  250px;
 }
 
+.requirement-list{
+	width: 89.5%;
+	display: inline-block;
+}
 
+.left-border{
+	padding: 60px 0 59px 0;
+	border-left: solid 2px red;
+	width: 10%;
+	display: inline-block;
+}
 
+.clean-td{
+	padding: 0;
+	margin: 0;
+}
 
+.full-fill{
+	width: 100%;
+	height: 90px;
+}
 
+.sub-nav{
+	background: #97BA0C;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.main-nav{
+	background: #CCCC33;
+}
 
 
 
