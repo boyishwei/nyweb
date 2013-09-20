@@ -7,6 +7,26 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %></head>
   <body>
+    <!--nav-bar-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">宁优</a>
+        <ul class="nav">
+          <li><a href="#">吃的</a></li>
+          <li><a href="#">玩的</a></li>
+          <li><a href="#">学东西</a></li>
+          <li><a href="#">出去玩</a></li>
+          <li><a href="#">洗脸</a></li>
+          <li><a href="#">你想要啥子</a></li>
+          <li><a href="#">说两句</a></li>
+          <li><a href="#">精品售卖</a></li>
+        </ul>
+      </div>
+      <div class="pull-right">
+        
+      </div>
+    </div>
+    </div>
     <!--main div-->
     <div class="container">
       <!--page header-->
@@ -21,7 +41,7 @@
           </blockquote>
         </div>
         <div class="span9">
-          <img class="img-rounded" src="images/main_sponsor.jpg" alt="prod_show"/>
+          <img class="img-rounded" src="images/main_sponsor.png" alt="prod_show"/>
         </div>
       </div>
       <!--nav bar-->
@@ -134,8 +154,22 @@
       </div>
     -->
     <!--modules-->
-    <div class="container modules">
+    <div class="container modules toogle-bg">
       <legend>教育培训</legend>
+      <div class="row-fluid">
+        <div class="span3 data-original-title title bordered">
+          <img src="images/edu/edu_ad_1.png" width="270" height="225" />
+        </div>
+        <div class="span6 data-original-title title edu-individual-show bordered">
+          <div style="width:100%; height:20%;">a</div>
+          <div style="width:100%; height:80%;">b</div>
+        </div>
+        <div class="span3 data-original-title title edu-individual-show bordered">
+          <div style="width:100%; height:20%;">c</div>
+          <div style="width:100%; height:60%;">d</div>
+          <div style="width:100%; height:20%;">e</div>
+        </div>
+      </div>
       <div class="row-fluid">
         <ul class="thumbnails">
           <li class="span4">
@@ -295,7 +329,7 @@
       <hr>
     </div>
     <br>
-    <div class="container modules">
+    <div class="container modules toogle-bg">
       <legend>商城</legend>
       <div class="row-fluid">
         <ul class="thumbnails">
