@@ -1,0 +1,127 @@
+
+<div class="pull-right">
+    <a class="btn btn-link" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
+    <a class="btn btn-link" data-toggle="modal" href="#registerModal">注册</a>
+    <button type="button" class="btn btn-primary">发布需求</button>
+    <!--login modal-->
+    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="controls-groups">
+                            <div class="controls input-prepend">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <input id="username" type="text" placeholder="用户名">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="controls-groups">
+                            <div class="controls  input-prepend">
+                                <span class="add-on"><i class="icon-lock"></i></span>
+                                <input id="password" type="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="controls-groups">
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input id="remember" type="checkbox" value="remeber">remeber me
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <h3 id="myModalLabel">用户登录</h3>
+        </div>
+        <div class="modal-footer centered">
+            <button type="button" class="btn btn-primary">登录</button>
+        </div>
+    </div>
+    <!--register modal-->
+    <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="registerLabel">新用户注册</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+            <%= form_for(user, :url=>{:controller=>'sessions',:action=>'create'},:remote=>true, html: {class: "form-horizontal"}) do |u| %>   
+                <fieldset>
+                    <div class="controls-groups">
+                        <label class="control-label" for="username">用户名<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <%=u.text_field :username, :placeholder=>"用户名"%>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="controls-groups">
+                        <label class="control-label" for="password">密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <%=u.text_field :password, :placeholder=>"密码"%>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="controls-groups">
+                        <label class="control-label" for="password">再次确认密码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <%=u.text_field :password, :placeholder=>"再次确认密码"%>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="controls-groups">
+                        <label class="control-label" for="mailbox">注册邮箱<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <%=u.text_field :email, :placeholder=>"注册邮箱"%>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="controls-groups">
+                        <label class="control-label" for="cellphone">手机号码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <%=u.text_field :phone, :placeholder=>"手机号码"%>
+                        </div>
+                    </div>
+                    <div class="controls-groups">
+                        <div class="controls">
+                            <button type="button" class="btn">发送验证码</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="controls-groups">
+                        <label class="control-label" for="cellphone">验证码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
+                        <div class="controls">
+                            <input id="cellphone" type="text" placeholder="验证码">
+                        </div>
+                    </div>
+                </fieldset>
+            <% end %>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="user_div" class="hidden" style="display:none">
+    <%= form_for(user, :url=>{:controller=>'sessions',:action=>'create'},:remote=>true) do |u| %>
+    <%=u.label '请输入用户名/密码:'%><br>
+    <%=u.text_field :username, :class=>"field"%><br>
+    <%=u.password_field :password, :class=>"field"%><br><br>
+    <%= u.submit "登录"%><br>
+    <div style="color:red">
+        <% flash.each do |key, value| %>
+        <span class="alert alert-<%= key %>"><%= value %></span>
+        <% end %>
+    </div>
+    <% end %>
+</div>
+<% else %>
+<div>
+    <% flash.each do |key, value| %>
+    <span class="alert alert-<%= key %>"><%= value %></span>
+    <% end %>
+    <%= link_to current_user.username, user_path(current_user)%>&nbsp;&nbsp;&nbsp;
+    <%= button_to "退出", signout_path ,:form_class=>"inline_block"%>
+</div>
+

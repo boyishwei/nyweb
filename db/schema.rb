@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911093645) do
+ActiveRecord::Schema.define(:version => 20130922072040) do
 
   create_table "users", :force => true do |t|
-    t.string   "user_name"
+    t.string   "username"
     t.string   "password"
     t.string   "email"
     t.decimal  "phone",      :precision => 10, :scale => 0
