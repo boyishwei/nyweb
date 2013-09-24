@@ -22,6 +22,7 @@
           <li><a href="#">代理专区</a></li>
         </ul>
         <%= render :partial => 'users/login',:locals => { :user => User.new } %>
+      </div>
     </div>
     <!--main div-->
     <div class="container">
@@ -40,120 +41,57 @@
           <img class="img-rounded" src="images/main_sponsor.png" alt="prod_show"/>
         </div>
       </div>
-      <!--nav bar-->
-      <!--
       <div>
-        <table class="table nav-table">
-          <tbody>
-            <tr class="nav-td-frttr main-nav">
-              <td class="nav-td" style="text-align: center; vertical-align: bottom;"><strong>导航</strong></td>
-              <td>
-                <button type="button" class="btn btn-link btn-block"><strong>教育培训</strong></button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-link btn-block"><strong>美食餐饮</strong></button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-link btn-block"><strong>宁优网上商城</strong></button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-link btn-block"><strong>宁优说说</strong></button>
-              </td>
-              <td></td>
-              <td rowspan="2" style="width:8%; padding:0;" class="clean-td">
-                <button typee="button" class="btn btn-large btn-block btn-danger full-fill">发布需求</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-info btn-block">登录</button>
-              </td>
-              <td>
-                <button type="button" class="btn btn-warning btn-block">注册</button>
-              </td>
-            </tr>
-            <tr class="sub-nav">
-              <td class="nav-td" style="text-align: center; vertical-align: top;"><strong>热门标签</strong></td>
-              <td>
-                <button type="button" class="btn btn-link btn-block"><strong>宁夏文化节</strong></button>
-              </td>
-              <td colspan="3">
-                <button type="button" class="btn btn-link btn-block"><strong>宁夏大学第10届文化体育节</strong></button>
-              </td>
-              <td></td>
-              <td colspan="2">
-                <button type="button" class="btn btn-warning btn-block">添加到桌面</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <pre class="text-center" style="margin-bottom: -8px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
       </div>
-    -->
-    <div>
-      <pre class="text-center" style="margin-bottom: -8px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
-    </div>
-    <!--Carousel-->
-    <div class="carousel slide" id="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        <div class="active item">
-          <img src="images/slide_1.jpg" alt="prod_show" />
+      <!--Carousel-->
+      <div class="carousel slide" id="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="active item">
+            <img src="images/slide_1.jpg" alt="prod_show" />
+          </div>
+          <div class="item">
+            <img src="images/slide_2.jpg" alt="prod_show" />
+          </div>
+          <div class="item">
+            <img src="images/slide_3.jpg" alt="prod_show" />
+          </div>
         </div>
-        <div class="item">
-          <img src="images/slide_2.jpg" alt="prod_show" />
-        </div>
-        <div class="item">
-          <img src="images/slide_3.jpg" alt="prod_show" />
-        </div>
+        <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
       </div>
-      <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
-    </div>
-    <div>
-      <pre class="text-center" style="margin-top: -23px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
-    </div>
-    <br>
-    <!--declaration-->
-    <div class="alert alert-success" style="margin-bottom: 0px;">
-      <strong>我们的使命:</strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;让消费者用上安全、称心的产品与服务，让用心做生意的人得到应有的回报
-    </div>
-    <div class="alert alert-info">
-      <strong>联系我们:</strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <strong>电话：</strong> 0951-5102315 
-      <strong>Email：</strong>
-      <a href="mailto:#">nxcome@163.com</a>
-
-      <span class="pull-right">
-        在线客服：
-        <a href="#"><img src="images\QQ.png" alt="点击与我交流" title="点击与我交流"></a>
-        <a href="#"><img src="images\tengxun.png" title="转发到腾讯微博"></a>
-        <a href="#"><img src="images\weibo.png" title="转发到新浪微博"></a>          
-      </span>
-    </div>
-  </div>
-<!--
       <div>
-        <table class="table nav-table">
-          <tr>
-            <td class="nav-td">我们的使命</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="nav-td">联系我们</td>
-            <td>
-              电话： 0951-5102315 Email：nxcome@163.com 在线客服：
-
-            </td>
-          </tr>
-        </table>
+        <pre class="text-center" style="margin-top: -23px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
       </div>
-    -->
-    <!--modules-->
+      <br>
+      <!--declaration-->
+      <div class="alert alert-success" style="margin-bottom: 0px;">
+        <strong>我们的使命:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;让消费者用上安全、称心的产品与服务，让用心做生意的人得到应有的回报
+      </div>
+      <div class="alert alert-info">
+        <strong>联系我们:</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <strong>电话：</strong> 0951-5102315 
+        <strong>Email：</strong>
+        <a href="mailto:#">nxcome@163.com</a>
+
+        <span class="pull-right">
+          在线客服：
+          <a href="#"><img src="images\QQ.png" alt="点击与我交流" title="点击与我交流"></a>
+          <a href="#"><img src="images\tengxun.png" title="转发到腾讯微博"></a>
+          <a href="#"><img src="images\weibo.png" title="转发到新浪微博"></a>          
+        </span>
+      </div>
+    </div>
+
+    <!--sections-->
     <div class="section">
       <div class="container modules">
         <legend>教育培训</legend>
@@ -233,91 +171,93 @@
         <p><a href="#" class="btn btn-default pull-right">更多</a></p>
         <hr>
       </div>      
-
     </div>
 
     <br>
-    <div class="container modules">
-      <legend>美食餐饮</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_1.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>咖啡</h4>
-                <p>“咖啡”（Coffee）一词源自埃塞俄比亚的一个名叫卡法（kaffa）的小镇，在希腊语中“Kaweh”的意思是“力量与热情”。咖啡与茶叶、可可并称为世界三大饮料。</p>
-                <br>
-                <br>
-                <br>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+    <div class="section">
+      <div class="container modules">
+        <legend>美食餐饮</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_1.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>咖啡</h4>
+                  <p>“咖啡”（Coffee）一词源自埃塞俄比亚的一个名叫卡法（kaffa）的小镇，在希腊语中“Kaweh”的意思是“力量与热情”。咖啡与茶叶、可可并称为世界三大饮料。</p>
+                  <br>
+                  <br>
+                  <br>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_2.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>点心</h4>
-                <p>点心是糕点之类的食品。相传东晋时期一大将军，见到战士们日夜血战沙场，英勇杀敌，屡建战功，甚为感动，随即传令烘制民间喜爱的美味糕饼，派人送往前线，慰劳将士，以表“点点心意”。自此以后，“点心”的名字便传开了，并一直延用至今。</p>
-                <br>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_2.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>点心</h4>
+                  <p>点心是糕点之类的食品。相传东晋时期一大将军，见到战士们日夜血战沙场，英勇杀敌，屡建战功，甚为感动，随即传令烘制民间喜爱的美味糕饼，派人送往前线，慰劳将士，以表“点点心意”。自此以后，“点心”的名字便传开了，并一直延用至今。</p>
+                  <br>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_3.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>煲汤</h4>
-                <p>煲汤就讲究老火。讲究原汁原味,熬一锅汤,除了基本的材料,就只加盐下去,有时候加点姜去腥。其它地方的汤就加这个加那个,根本就去了原来汤的味道。</p>
-                <br>
-                <br>
-                <br>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_3.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>煲汤</h4>
+                  <p>煲汤就讲究老火。讲究原汁原味,熬一锅汤,除了基本的材料,就只加盐下去,有时候加点姜去腥。其它地方的汤就加这个加那个,根本就去了原来汤的味道。</p>
+                  <br>
+                  <br>
+                  <br>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+        <br>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_4.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>海鲜</h4>
+                  <p>出产于海里的可食用的动物性、或植物性原料通称为海鲜。海鲜多指海味。中国就有"山珍海味"之说。海鲜的分类有这么几种情况：活海鲜、冷冻海鲜和干海鲜。</p>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
+              </div>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_5.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>川菜</h4>
+                  <p>川菜作为我国八大菜系之一，在我国烹饪史上占有重要地位，它取材广泛，调味多变，菜式多样，口味清鲜醇浓并重，以善用麻辣著称，并以其别具一格的烹调方法和浓郁的地方风味.</p>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
+              </div>
+            </li>
+            <li class="span4">
+              <div class="thumbnail">
+                <a href="#"><img src="images/diet/diet_ad_6.png" alt="prod_show" /></a>
+                <div class="caption">
+                  <h4>火锅</h4>
+                  <p>作为民间流行的美食，流行于全国各地。我国的火锅花色纷呈，百锅千味。金属或陶瓷制成锅、炉合一的一种食具。炉置炭火，使锅汤常沸以熟菜肴，随煮随吃。亦指用火锅煮的菜肴。</p>
+                  <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p><a href="#" class="btn btn-default pull-right">更多</a></p>
+        <hr>
       </div>
-      <br>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_4.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>海鲜</h4>
-                <p>出产于海里的可食用的动物性、或植物性原料通称为海鲜。海鲜多指海味。中国就有"山珍海味"之说。海鲜的分类有这么几种情况：活海鲜、冷冻海鲜和干海鲜。</p>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-              </div>
-            </div>
-          </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_5.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>川菜</h4>
-                <p>川菜作为我国八大菜系之一，在我国烹饪史上占有重要地位，它取材广泛，调味多变，菜式多样，口味清鲜醇浓并重，以善用麻辣著称，并以其别具一格的烹调方法和浓郁的地方风味.</p>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-              </div>
-            </div>
-          </li>
-          <li class="span4">
-            <div class="thumbnail">
-              <a href="#"><img src="images/diet/diet_ad_6.png" alt="prod_show" /></a>
-              <div class="caption">
-                <h4>火锅</h4>
-                <p>作为民间流行的美食，流行于全国各地。我国的火锅花色纷呈，百锅千味。金属或陶瓷制成锅、炉合一的一种食具。炉置炭火，使锅汤常沸以熟菜肴，随煮随吃。亦指用火锅煮的菜肴。</p>
-                <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <p><a href="#" class="btn btn-default pull-right">更多</a></p>
-      <hr>
     </div>
+
     <br>
     <div class="section">
       <div class="container modules section">
@@ -352,10 +292,8 @@
    <p><a href="#" class="btn btn-default pull-right">更多</a></p>
    <hr>
  </div>      
-</div>
-
-<br>
-<!--mirco post-->
+ <br>
+ <!--mirco post-->
     <!--
     <div class="container modules">
       <legend>宁夏说说</legend>
