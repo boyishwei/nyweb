@@ -8,15 +8,13 @@
   <%= csrf_meta_tags %></head>
   <body style="background-color: #f5f5f5;">
     <!--header-->
-    <div>
+    <div style="background-color: #99CC66;">
       <div class="container">
         <div class="row">
-          <div class="span3">
-            <h3 class="inline-block">宁优网 </h3>
-            <small>只为好产品代言</small>
-          </div>
-          <div class="span9">
-            <%= render :partial => 'users/login',:locals => { :user => User.new } %>
+          <div class="page-header">
+            <h3 class="inline">宁优网 <small>只为好产品代言</small>
+              <%= render :partial => 'users/login',:locals => { :user => User.new } %>
+            </h3>
           </div>
         </div>
       </div>
@@ -24,387 +22,301 @@
       <div class="container">
         <ul class="thumbnails" style="margin-bottom: 0px;">
           <li class="span3">
-          <a href="#" class="thumbnail"><img src="images/spn/spn_ad_1.png" alt="spn_show" /></a>
-         </li>
-         <li class="span3">
-          <a href="#" class="thumbnail"><img src="images/spn/spn_ad_2.png" alt="spn_show" /></a>
-        </li>    
-        <li class="span3">
-          <a href="#" class="thumbnail"><img src="images/spn/spn_ad_3.png" alt="spn_show" /></a>
-        </li> 
-        <li class="span3">
-          <a href="#" class="thumbnail"><img src="images/spn/spn_ad_4.png" alt="spn_show" /></a>
-        </li>                 
-      </ul>
+            <a href="#" class="thumbnail"><img src="images/spn/spn_ad_1.png" alt="spn_show" /></a>
+          </li>
+          <li class="span3">
+            <a href="#" class="thumbnail"><img src="images/spn/spn_ad_2.png" alt="spn_show" /></a>
+          </li>    
+          <li class="span3">
+            <a href="#" class="thumbnail"><img src="images/spn/spn_ad_3.png" alt="spn_show" /></a>
+          </li> 
+          <li class="span3">
+            <a href="#" class="thumbnail"><img src="images/spn/spn_ad_4.png" alt="spn_show" /></a>
+          </li>                 
+        </ul>
+      </div>
     </div>
-  </div>
-  <!--
-  <div class="row-fluid">
-    <div class="span2 offset1">
-      <img src="images/spn/spn_ad_1.png">
+
+    <div class="row-fulid alert alert-warning text-center" style="margin-bottom: 0px;">
+      <strong>感谢以上企业对本站的大力支持</strong>
     </div>
-    <div class="span2">
-      <img src="images/spn/spn_ad_1.png">
+    <!--nav-bar-->
+    <div class="navbar navbar-static-top navbar-inverse" data-offset-top="239">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">宁优</a>
+          <ul class="nav">
+            <li><a href="#">教育·培训</a></li>
+            <li><a href="#">美食·餐饮</a></li>
+            <li><a href="#">精品售卖</a></li>
+            <li><a href="#">旅游·房产</a></li>
+            <li><a href="#">健康·美容</a></li>
+            <li><a href="#">说说</a></li>
+            <li><a href="#">需求·发布</a></li>
+            <li><a href="#">代理专区</a></li>
+          </ul>
+          <form class="navbar-search pull-left">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+        </div>
+
+      </div>
     </div>
-    <div class="span2">
-      <img src="images/spn/spn_ad_1.png">
-    </div>
-    <div class="span2">
-      <img src="images/spn/spn_ad_1.png">
-    </div>      
-    <div class="span2">
-      <img src="images/spn/spn_ad_1.png">
-    </div>      
-  </div>-->
-  <div class="row-fulid alert alert-warning text-center" style="margin-bottom: 0px;">
-    <strong>感谢以上企业对本站的大力支持</strong>
-  </div>
-  <!--nav-bar-->
-  <div class="navbar" data-spy="affix" data-offset-top="239">
-    <div class="navbar-inner">
-      <a class="brand" href="#">宁优</a>
-      <ul class="nav">
-        <li><a href="#">教育·培训</a></li>
-        <li><a href="#">美食·餐饮</a></li>
-        <li><a href="#">精品售卖</a></li>
-        <li><a href="#">旅游·房产</a></li>
-        <li><a href="#">健康·美容</a></li>
-        <li><a href="#">说说</a></li>
-        <li><a href="#">需求·发布</a></li>
-        <li><a href="#">代理专区</a></li>
-      </ul>
-      <form class="navbar-search pull-left">
-        <input type="text" class="search-query" placeholder="Search">
-      </form>
-    </div>
-  </div>
-  <!--news div-->
-  <div class="section-news">
+    <!--news div-->
     <hr>
-    <div class="container" style="border: solid 1px #990000;">
-      <div class="row">
-        <div class="span6">
-          <div class="row">
-            <div class="span1">
-              <h2 style="color:#999999;"><br>焦点<br>宁夏</h2>
-            </div>
-            <div class="span5">
-              <img src="images/focus.png">
+    <div class="section-news well">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <div class="row">
+              <div class="span1">
+                <h2 style="color:#999999;"><br>焦点<br>宁夏</h2>
+              </div>
+              <!--Carousel-->
+              <div class="span5">
+                <div class="carousel slide" id="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="active item">
+                      <img src="images/focus/1.jpg" alt="prod_show" />
+                    </div>
+                    <div class="item">
+                      <img src="images/focus/2.jpg" alt="prod_show" />
+                    </div>
+                    <div class="item">
+                      <img src="images/focus/3.jpg" alt="prod_show" />
+                    </div>
+                  </div>
+                  <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+                  <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="span6">
-          <p class="text-warning"><a href="#">新消息报: 李克强：坚持不扩大赤字</a></p>
-          <p class="text-error"><a href="#">银川晚报:“房姐”称四个户口都真实 庭审未提41套房</a></p>
-          <p class="text-error"><a href="#">环球时报: 北京3男子开奔驰持枪射击路人被拘 自称是仿真枪</a></p>
-          <p class="text-error"><a href="#">新华时报：突尼斯打击“性圣战”背后的深意</a></p>
-          <p class="text-error"><a href="#">参考消息：中央军委：领导干部在离任前应安排审计</a></p>
+          <div class="span6">
+            <p class="text-warning"><a href="#">新消息报: 李克强：坚持不扩大赤字</a></p>
+            <p class="text-error"><a href="#">银川晚报:“房姐”称四个户口都真实 庭审未提41套房</a></p>
+            <p class="text-error"><a href="#">环球时报: 北京3男子开奔驰持枪射击路人被拘 自称是仿真枪</a></p>
+            <p class="text-error"><a href="#">新华时报：突尼斯打击“性圣战”背后的深意</a></p>
+            <p class="text-error"><a href="#">参考消息：中央军委：领导干部在离任前应安排审计</a></p>
+          </div>
         </div>
       </div>
     </div>
     <hr>
-  </div>
 
-<!--main div-->
-    <!--
-  <div class="container">
-    <!--page header--
-
-    <div>
-      <pre class="text-center" style="margin-bottom: -8px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
-    </div>
-    <!--Carousel--
-    <div class="carousel slide" id="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <!-- Carousel items --
-      <div class="carousel-inner">
-        <div class="active item">
-          <img src="images/slide_1.jpg" alt="prod_show" />
-        </div>
-        <div class="item">
-          <img src="images/slide_2.jpg" alt="prod_show" />
-        </div>
-        <div class="item">
-          <img src="images/slide_3.jpg" alt="prod_show" />
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>教育培训</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/edu/edu_ad_1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/edu/edu_ad_2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/edu/edu_ad_3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/edu/edu_ad_4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
         </div>
       </div>
-      <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
     </div>
-    <div>
-      <pre class="text-center" style="margin-top: -23px;"><strong class="text-error">感谢企业与个人提供的美好服务</strong></pre>
-    </div>
-    <br>
-    
-    <!--declaration-
-    <div class="alert alert-success" style="margin-bottom: 0px;">
-      <strong>我们的使命:</strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;让消费者用上安全、称心的产品与服务，让用心做生意的人得到应有的回报
-    </div>
-    <div class="alert alert-info">
-      <strong>联系我们:</strong>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <strong>电话：</strong> 0951-5102315 
-      <strong>Email：</strong>
-      <a href="mailto:#">nxcome@163.com</a>
 
-      <span class="pull-right">
-        在线客服：
-        <a href="#"><img src="images\QQ.png" alt="点击与我交流" title="点击与我交流"></a>
-        <a href="#"><img src="images\tengxun.png" title="转发到腾讯微博"></a>
-        <a href="#"><img src="images\weibo.png" title="转发到新浪微博"></a>          
-      </span>
-    </div>
-  </div>
--->
-
-<!--sections-->
-<div class="section">
-  <div class="container modules">
-    <legend>教育培训</legend>
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        <li class="span12">
-          <a href="#" class="thumbnail"><img src="images/slide_1.jpg" alt="prod_show" /></a>
-        </li>
-      </ul>
-      <ul class="thumbnails">
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_1.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>澳洲留学推荐</h4>
-              <p>澳新国际积累、并拥有有多年帮助中国初高中留学的经验，帮助中国家长、学生轻松办理澳洲留学事宜</p>
-              <br>
-              <br>
-              <br>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_2.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>新浪教育盛典</h4>
-              <p>主题为“教育，因你而改变”的第四届新浪2011中国教育(微博)盛典12月10日在北京万达索菲特大酒店举行。盛典中，新浪微博对现场情况进行直播，颁发出九大微博奖项</p>
-              <br>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_3.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>美育奥福</h4>
-              <p>美育，一九八三年成立于中国台湾，专业从事儿童音乐教育、创造性舞蹈课程及师资培训课程，现有讲师及专任教师百余位，分校及师训中心四十余家，教材使用园三百多家，遍布中国大陆及香港、台湾，是华人世界最专业的儿童音乐教学中心及师资培训机构。</p>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <br>
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        <li class="span12">
-          <a href="#" class="thumbnail"><img src="images/slide_2.jpg" alt="prod_show" /></a>
-        </li>
-      </ul>
-      <ul class="thumbnails">
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_4.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>红黄蓝早教</h4>
-              <p>红黄蓝于1998年创建中国第一家亲子园，首创0-6岁一体化早期教育模式，先后打造红黄蓝亲子园、红黄蓝幼儿园、竹兜早教套装三大教育品牌。</p>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_5.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>夏加儿</h4>
-              <p>看当下，具有创造力的艺术家、发明家、咨询师和考虑全局的人均走在时代的前列，而我国这方面的人才却极为缺失，儿童创造力的培养亟不可待。 。</p>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/edu/edu_ad_6.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>英孚</h4>
-              <p>EF英孚教育是全球最大的私人英语教育机构，旗下有10个下属机构及非盈利性组织，主要致力于语言学习、留学旅游及学位课程等方面。</p>
-              <p class="text-right"><a href="#" class="btn btn-primary">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <p><a href="#" class="btn btn-default pull-right">更多</a></p>
-    <hr>
-  </div>      
-</div>
-
-<br>
-<div class="section">
-  <div class="container modules">
-    <legend>美食餐饮</legend>
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_1.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>咖啡</h4>
-              <p>“咖啡”（Coffee）一词源自埃塞俄比亚的一个名叫卡法（kaffa）的小镇，在希腊语中“Kaweh”的意思是“力量与热情”。咖啡与茶叶、可可并称为世界三大饮料。</p>
-              <br>
-              <br>
-              <br>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_2.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>点心</h4>
-              <p>点心是糕点之类的食品。相传东晋时期一大将军，见到战士们日夜血战沙场，英勇杀敌，屡建战功，甚为感动，随即传令烘制民间喜爱的美味糕饼，派人送往前线，慰劳将士，以表“点点心意”。自此以后，“点心”的名字便传开了，并一直延用至今。</p>
-              <br>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_3.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>煲汤</h4>
-              <p>煲汤就讲究老火。讲究原汁原味,熬一锅汤,除了基本的材料,就只加盐下去,有时候加点姜去腥。其它地方的汤就加这个加那个,根本就去了原来汤的味道。</p>
-              <br>
-              <br>
-              <br>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <br>
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_4.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>海鲜</h4>
-              <p>出产于海里的可食用的动物性、或植物性原料通称为海鲜。海鲜多指海味。中国就有"山珍海味"之说。海鲜的分类有这么几种情况：活海鲜、冷冻海鲜和干海鲜。</p>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_5.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>川菜</h4>
-              <p>川菜作为我国八大菜系之一，在我国烹饪史上占有重要地位，它取材广泛，调味多变，菜式多样，口味清鲜醇浓并重，以善用麻辣著称，并以其别具一格的烹调方法和浓郁的地方风味.</p>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-        <li class="span4">
-          <div class="thumbnail">
-            <a href="#"><img src="images/diet/diet_ad_6.png" alt="prod_show" /></a>
-            <div class="caption">
-              <h4>火锅</h4>
-              <p>作为民间流行的美食，流行于全国各地。我国的火锅花色纷呈，百锅千味。金属或陶瓷制成锅、炉合一的一种食具。炉置炭火，使锅汤常沸以熟菜肴，随煮随吃。亦指用火锅煮的菜肴。</p>
-              <p class="text-right"><a href="#" class="btn btn-warning">了解详情</a></p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <p><a href="#" class="btn btn-default pull-right">更多</a></p>
-    <hr>
-  </div>
-</div>
-
-<br>
-<div class="section">
-  <div class="container modules section">
-    <legend>商城</legend>
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        <li class="span4">
-         <a href="#" class="thumbnail"><img src="images/prod/prod_ad_1.png" alt="prod_show" /></a>
-       </li>
-       <li class="span4">
-        <a href="#" class="thumbnail"><img src="images/prod/prod_ad_2.png" alt="prod_show" /></a>
-      </li>
-      <li class="span4">
-        <a href="#" class="thumbnail"><img src="images/prod/prod_ad_3.png" alt="prod_show" /></a>
-      </li>
-    </ul>
-  </div>
-  <br>
-  <div class="row-fluid">
-    <ul class="thumbnails">
-      <li class="span4">
-       <a href="#" class="thumbnail"><img src="images/prod/prod_ad_4.png" alt="prod_show" /></a>
-     </li>
-     <li class="span4">
-       <a href="#" class="thumbnail"><img src="images/prod/prod_ad_5.png" alt="prod_show" /></a>
-     </li>
-     <li class="span4">
-       <a href="#" class="thumbnail"><img src="images/prod/prod_ad_6.png" alt="prod_show" /></a>
-     </li>
-   </ul>
- </div>
- <p><a href="#" class="btn btn-default pull-right">更多</a></p>
- <hr>
-</div>      
-<br>
-<!--mirco post-->
-    <!--
-    <div class="container modules">
-      <legend>宁夏说说</legend>
-      <div class="requirements">
-        <div class="requirement-list inline-block">
-          <p>给输入框添加disabled属性可阻止用户输入，并且输入框会呈现稍微不同的外观。</p>
-        </div>
-        <div class="left-border inline-block">
-          <button type="button" class="btn btn-primary btn-large btn-block">上一组</button>
-          <button type="button" class="btn btn-large btn-block">发表说说</button>
-          <button type="button" class="btn btn-large btn-block">下一组</button>
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>美食餐饮</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/diet/1.gif" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/diet/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/diet/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/diet/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>-->
-    <!--requirement publish-->
-    <!--
-    <div class="container modules">
-      <legend>需求专区</legend>
-      <div class="requirements">
-        <div class="requirement-list inline-block">
-          <p>数学辅导</p>
-        </div>
-        <div class="left-border inline-block">
+    </div>
 
-          <button type="button" class="btn btn-primary btn-large btn-block">上一组</button>
-          <button type="button" class="btn btn-large btn-block">发布需求</button>
-          <button type="button" class="btn btn-large btn-block">下一组</button>
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>精品售卖</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/onlineshop/1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/onlineshop/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/onlineshop/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/onlineshop/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>-->
+    </div>
+
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>旅游酒店</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/travel/1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/travel/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/travel/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/travel/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>房产</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/house/1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/house/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/house/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/house/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>健康美容</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/health/1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/health/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/health/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/health/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>见证区</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span12">
+              <a href="#" class="thumbnail"><img src="images/witness/1.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/witness/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/witness/3.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/witness/4.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--sections-->
+    <div class="section">
+      <div class="container modules">
+        <legend>SOS</legend>
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/1.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/2.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/3.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>                      
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/4.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/5.jpg" alt="prod_show" /></a>
+            </li>
+            <li class="span4">
+              <a href="#" class="thumbnail"><img src="images/sos/6.jpg" alt="prod_show" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <!--footer-->          
     <footer class="footer">
       <div class="container">
@@ -414,7 +326,7 @@
           & Hao, Zhang
         </p>
         <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
-        <p>Copyright &copy; 2013 宁夏滴光科技有限公司</p>
+        <p>Copyright &copy; 2013 宁夏滴光信息科技有限公司</p>
         <ul class="footer-links">
           <li>
             <%=link_to "关于", about_path%>
