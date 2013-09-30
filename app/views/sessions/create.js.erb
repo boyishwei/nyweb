@@ -1,0 +1,11 @@
+<% if @user.errors.any? %>
+	var error_block = "";
+        <% @user.errors.full_messages.each do |msg| %>
+                error_block +=  '<li><%= msg %></li>'
+        <% end %>
+	$('#login_error_explanation').html("<ul>" + error_block + "</ul>" );
+        $('#login_error_explanation').show();
+<% else %>
+	$('#loginModal').modal('toggle');
+        $("#user_zone").html("<%= j render partial:'users/login', locals:{ user: @user } %>");
+<% end %>

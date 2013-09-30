@@ -14,7 +14,6 @@
         <div class="row">
           <div class="page-header">
             <h3 class="inline">宁优网 <small>只为好产品代言</small>
-              <%= render :partial => 'users/login',:locals => { :user => User.new } %>
             </h3>
           </div>
         </div>
@@ -53,11 +52,13 @@
             <li><a href="#">需求·发布</a></li>
             <li><a href="#">代理专区</a></li>
           </ul>
-          <form class="navbar-search pull-left">
+          <!--<form class="navbar-search pull-left">
             <input type="text" class="search-query" placeholder="Search">
-          </form>
+          </form>-->
+          <div class="pull-right inline" id="user_zone">
+            <%= render :partial => 'users/login'%>
+          </div>
         </div>
-
       </div>
     </div>
     <!--news div-->
@@ -352,11 +353,6 @@
             </ul>
           </div>
         </footer>
-        <script type="text/javascript">
-        $('.banner').unslider({
-          fluid: true,
-          dots: true  
-        });
-        </script>
+        <%= javascript_include_tag "add_ons" %>
       </body>
       </html>

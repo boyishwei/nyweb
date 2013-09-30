@@ -10,6 +10,7 @@ Nyweb::Application.routes.draw do
   match "/contact" => "pub#contact"
   match "/recruit" => "pub#recruit"
   match "/ba" => "pub#ba"
+  match "/signout" => "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

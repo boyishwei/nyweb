@@ -1,5 +1,14 @@
 class PubController < ApplicationController
+  include SessionsHelper
   def index
+	if signed_in?
+		@user=current_user
+	puts @user.username
+	puts ">>>>>>>"
+	else
+		@user=User.new
+	puts "<<<<<<<<<<<"
+	end
   end
 
   def about

@@ -12,15 +12,15 @@ module SessionsHelper
 
   def current_user
     @current_user ||= User.find_by_remember_token(cookies[:remember_token])
-    puts "into initiallize or get user from db via cookies"
-	  puts @current_user.nil?
+    #puts "into initiallize or get user from db via cookies"
+    #puts "user is nill? " + @current_user.nil?.to_s
 end
 
 def signed_in?
 	#puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	#puts !current_user.nil?
 	#puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
- current_user.nil?
+	!current_user.nil?
 	#puts "into sign jugement"
 end
 

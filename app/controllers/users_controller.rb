@@ -8,8 +8,8 @@ def index
   @users                      = User.all
 
   respond_to do |format|
-format.html # index.html.erb
-format.json { render json: @users }
+  format.html # index.html.erb
+  format.json { render json: @users }
 end
 end
 
@@ -44,7 +44,7 @@ end
 # POST /users.json
 def create
   @user = User.new(params[:user])
-  puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  
   if params[:auth][:authCode] != params[:auth][:hiddenAuthCode]
     @user.errors.add("验证失败","验证码输入错误")
     puts @user.errors.full_messages
@@ -53,18 +53,22 @@ def create
     #format.html { render action: "new" } 
     return
   end
-  puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  puts signed_in?
+ 
   respond_to do |format|
     if @user.save
       sign_in @user
+      puts "success!"
       format.html { redirect_to root_path }
       format.json { render json: @user, status: :created, location: @user }
-      format.js
+      format.js {}
     else
-      puts "run to hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-      #render "new"
+      puts "save user failed"
+      puts @user.errors.full_messages
       format.html { render action: "new" }
       format.json { render json: @user.errors, status: :unprocessable_entity }
+      format.js {}
+      #format.js { render :partial => 'users/login', :locals => { :user => @user }}
     end
   end
 end
