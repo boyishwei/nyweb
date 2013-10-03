@@ -12,6 +12,13 @@ Nyweb::Application.routes.draw do
   match "/ba" => "pub#ba"
   match "/signout" => "sessions#destroy"
   match "/education" => "pub#edu"
+  match "/cate" => "pub#cate"
+  match "/fab" => "pub#fab"
+  match "/tour" => "pub#tour"
+  match "/beauty" => "pub#beauty"
+  match "/micropost" => "pub#micropost"
+  match "/sos" => "pub#sos"
+  match "/agent" => "pub#agent"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

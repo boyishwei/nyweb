@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 		@user=User.new
 		@user.errors.add("登录失败","用户名密码错误")
 	end
+	puts signed_in?.to_s + ">>>>"
 	#render :js => 'alert(111); #$("#user_zone").html("<%= j render partial:"users/login", locals:{ user: user } %>");'
 	respond_to do |format|
 		format.html { redirect_to root_path }

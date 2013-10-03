@@ -17,9 +17,9 @@ module SessionsHelper
 end
 
 def signed_in?
-	#puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-	#puts !current_user.nil?
-	#puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	puts !current_user.nil?
+	puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	!current_user.nil?
 	#puts "into sign jugement"
 end

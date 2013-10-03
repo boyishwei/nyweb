@@ -7,14 +7,16 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "unslide" %>
   <%= csrf_meta_tags %></head>
-  <body style="background-color: #f5f5f5;">
+  <body style="background-color: #f5f5f5;" data-spy="scroll" data-target=".navbar">
     <!--header-->
     <div style="background-color: #99CC66;">
       <div class="container">
         <div class="row">
-          <div class="page-header">
-            <h3 class="inline">宁优网 <small>只为好产品代言</small>
-            </h3>
+          <div class="span6">
+            <h3>宁优网 <small>只为好产品代言</small></h3>
+          </div>
+          <div class="pull-right user-zone" id="user_zone">
+            <%= render :partial => 'users/login'%>
           </div>
         </div>
       </div>
@@ -38,307 +40,20 @@
       <p class="text-info text-center" style="margin-bottom: 0;"><strong>感谢以上企业对本站的大力支持</strong></p>
     </div>
     <!--nav-bar-->
-    <div class="navbar navbar-static-top navbar-inverse" data-offset-top="239">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">宁优</a>
-          <ul class="nav">
-            <li><a href="/education">教育·培训</a></li>
-            <li><a href="#">美食·餐饮</a></li>
-            <li><a href="#">精品售卖</a></li>
-            <li><a href="#">旅游·房产</a></li>
-            <li><a href="#">健康·美容</a></li>
-            <li><a href="#">说说</a></li>
-            <li><a href="#">需求·发布</a></li>
-            <li><a href="#">代理专区</a></li>
-          </ul>
-          <!--<form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="Search">
-          </form>-->
-          <div class="pull-right inline" id="user_zone">
-            <%= render :partial => 'users/login'%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--news div-->
-    <br>
-    <div>
-      <div class="container section-news">
-        <div class="row">
-          <div class="span6 ">
-            <div class="row">
-              <div class="span1 border-news-head">
-                <h2 style="color:#999999;"><br>焦点<br>宁夏<br></h2>
-              </div>
-              <!--Carousel-->
-              <div class="span5" style="margin:0;">
-                <!--
-                <div class="carousel slide" id="carousel">
-                  <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                  </ol>
-                  <!-- Carousel items --
-                  <div class="carousel-inner">
-                    <div class="active item">
-                      <img src="images/focus/1.jpg" alt="prod_show" />
-                    </div>
-                    <div class="item">
-                      <img src="images/focus/2.jpg" alt="prod_show" />
-                    </div>
-                    <div class="item">
-                      <img src="images/focus/3.jpg" alt="prod_show" />
-                    </div>
-                  </div>
-                </div>
-              -->
-              <div class="banner has-dots">
-                <ul>
-                  <li><img src="images/focus/1.jpg" alt="prod_show" /></li>
-                  <li><img src="images/focus/2.jpg" alt="prod_show" /></li>
-                  <li><img src="images/focus/3.jpg" alt="prod_show" /></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="span1 border-news-head">
-          <h2 style="color:#999999;"><br>实时<br>要闻<br></h2>
-        </div>
-        <div class="span5" style="margin-left: 0px;">
-          <p class="text-warning"><a href="#">新消息报: 李克强：坚持不扩大赤字</a></p>
-          <p class="text-error"><a href="#">银川晚报:“房姐”称四个户口都真实 庭审未提41套房</a></p>
-          <p class="text-error"><a href="#">环球时报: 北京3男子开奔驰持枪射击路人被拘 自称是仿真枪</a></p>
-          <p class="text-error"><a href="#">新华时报：突尼斯打击“性圣战”背后的深意</a></p>
-          <p class="text-error"><a href="#">参考消息：中央军委：领导干部在离任前应安排审计</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <%= yield %> 
-  <div class="section">
-    <div class="container modules">
-      <legend>教育培训</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/edu/edu_ad_1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/edu/edu_ad_2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/edu/edu_ad_3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/edu/edu_ad_4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>美食餐饮</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/diet/1.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/diet/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/diet/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/diet/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>精品售卖</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/onlineshop/1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/onlineshop/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/onlineshop/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/onlineshop/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>旅游酒店</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/travel/1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/travel/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/travel/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/travel/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>房产</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/house/1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/house/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/house/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/house/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>健康美容</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/health/1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/health/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/health/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/health/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>见证区</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <a href="#" class="thumbnail"><img src="images/witness/1.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/witness/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/witness/3.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/witness/4.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--sections-->
-  <div class="section">
-    <div class="container modules">
-      <legend>SOS</legend>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/1.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/2.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/3.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>                      
-        <ul class="thumbnails">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/4.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/5.jpg" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/sos/6.jpg" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!--footer-->          
-  <footer class="footer">
-    <div class="container">
-      <p>
-        Designed and build by
-        <a href="http://www.boyishwei.com" target="_blank">Ryan Jiang</a>
-        & Hao, Zhang
-      </p>
-      <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
-      <p>Copyright &copy; 2013 宁夏滴光信息科技有限公司</p>
-      <ul class="footer-links">
-        <li>
-          <%=link_to "关于", about_path%>
+    <%= yield %> 
+    <!--footer-->          
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Designed and build by
+          <a href="http://www.boyishwei.com" target="_blank">Ryan Jiang</a>
+          & Hao, Zhang
+        </p>
+        <p>All rights reserved by Ning Xia Di Guang Technical Comp</p>
+        <p>Copyright &copy; 2013 宁夏滴光信息科技有限公司</p>
+        <ul class="footer-links">
+          <li>
+            <%=link_to "关于", about_path%>
             <!--<a href="#">关于</a>
           -->
         </li>

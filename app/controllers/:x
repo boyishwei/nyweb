@@ -27,7 +27,10 @@ class PubController < ApplicationController
   end
 
   def edu
-       @user = (signed_in?) ? current_user : User.new
+	puts ">@@@@@@@@@@@@@@@@@@@@@@@"
+       puts signed_in?.to_s + "<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>" 
+       puts "###########################"
+      @user = (signed_in?) ? current_user : User.new
   end
 
   def cate

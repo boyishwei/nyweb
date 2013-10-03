@@ -53,12 +53,13 @@ def create
     #format.html { render action: "new" } 
     return
   end
-  puts signed_in?
+  puts "1111:" + signed_in?.to_s
  
   respond_to do |format|
     if @user.save
       sign_in @user
       puts "success!"
+      puts "2222:" + signed_in?.to_s
       format.html { redirect_to root_path }
       format.json { render json: @user, status: :created, location: @user }
       format.js {}
