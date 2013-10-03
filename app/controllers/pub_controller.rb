@@ -22,4 +22,7 @@ class PubController < ApplicationController
 
   def ba
   end
+
+  def edu
+  end
 end
