@@ -105,6 +105,7 @@
                 <label class="control-label" for="cellphone">验证码<strong class="text-error"><abbr title="必填项"> *</abbr></strong></label>
                 <div class="controls">
                     <%= text_field "auth",  "authCode", :placeholder=>"验证码"%>
+                    <%= hidden_field "auth", "hiddenAuthCode" %>
                 </div>
             </div>
         </fieldset>
