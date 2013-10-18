@@ -1,0 +1,19 @@
+<% if @user.errors.any? %>
+        var error_block = "";
+        <% @user.errors.each do |attribute, msg| %>
+                error_block +=  '<li><%= msg %></li>';
+        <% end %>
+	
+        $("#update_password_response_msg").html("<ul>" + error_block + "</ul>" );
+        $("#update_password_response").removeClass("alert-success");
+        $("#update_password_response").addClass("alert-error");
+        $("#update_password_response").show();
+<% else %>
+	$("#update_password_response_msg").html("密码修改成功.");
+        $("#update_password_response").removeClass("alert-error");
+        $("#update_password_response").addClass("alert-success");
+        $("#update_password_response").show();
+	
+	$('#redirect-warning').show();
+        redirect2root();
+<% end %>

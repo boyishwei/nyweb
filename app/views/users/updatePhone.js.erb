@@ -1,0 +1,16 @@
+<% if @user.errors.any? %>
+        var error_block = "";
+        <% @user.errors.each do |attribute, msg| %>
+                error_block +=  '<li><%= msg %></li>';
+        <% end %>
+	
+        $("#update_phone_response_msg").html("<ul>" + error_block + "</ul>" );
+        $("#update_phone_response").removeClass("alert-success");
+        $("#update_phone_response").addClass("alert-error");
+        $("#update_phone_response").show();
+<% else %>
+	$("#update_phone_response_msg").html("手机号修改成功.");
+        $("#update_phone_response").removeClass("alert-error");
+        $("#update_phone_response").addClass("alert-success");
+        $("#update_phone_response").show();
+<% end %>

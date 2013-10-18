@@ -1,30 +1,148 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <hr>
+  <div class="tabbable tabs-left" style="height: 500px;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#pane1" data-toggle="tab">基本信息</a></li>
+      <li><a href="#pane2" data-toggle="tab">更改密码</a></li>
+      <li><a href="#pane3" data-toggle="tab">更改email地址</a></li>
+      <li><a href="#pane4" data-toggle="tab">更改手机号码</a></li>
+      <li><a href="#pane5" data-toggle="tab">更改地址信息</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="pane1" class="tab-pane active">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User name:</b>
-  <%= @user.user_name %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @user.address %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+        <table class="table table-hover">
+          <tbody>
+            <tr class="success">
+              <td><b class="text-success">用户名:</b></td><td><%= @user.username %></td>
+            </tr>
+            <tr class="error">
+              <td><b  class="text-success">Email地址:</b></td><td><%= @user.email %></td>
+            </tr>
+            <tr class="warning">
+              <td><b  class="text-success">手机号码:</b></td><td><%= @user.phone %></td>
+            </tr>
+            <tr class="info">
+              <td><strong  class="text-success">地址信息:</strong></td><td><%= @user.address %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%#= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+      <div id="pane2" class="tab-pane">
+        <div id="update_password_response" class="alert hide fade in">
+          <button type="button" class="close">&times;</button>
+          <p id="update_password_response_msg"></p>
+        </div>
+        <div id="redirect-warning" class="hide">
+          <span class="label label-warning">注意</span>
+          <a id="redirect_anchor" href="/">您需要重新使用新密码登录，页面将在<span id="countDown">5</span>秒之后跳转到首页，您可以点击这里直接跳转</a>
+          <div class="progress progress-warning">
+            <div id="redirect-bar" class="bar" style="width: 0%;"></div>
+          </div>
+        </div>
+        <%= form_for(@user, url: {controller: "users", action: "updatePWD"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
+        <div class="control-group">
+          <label class="control-label" for="old_password"><strong class="text-success">旧密码</strong></label>
+          <div class="controls">
+            <%= u.password_field :old_password, id:"old_password", :placeholder=>"旧密码"%>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password"><strong class="text-success">新密码</strong></label>
+          <div class="controls">
+            <%= u.password_field :password, :placeholder=>"新密码", id:"password" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="password_confirmation"><strong class="text-success">再次输入新密码</strong></label>
+          <div class="controls">
+            <%= u.password_field :password_confirmation, :placeholder=>"新密码", id:"password_confirmation" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= u.submit "提交", class:"btn btn-warning" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div id="pane3" class="tab-pane">
+        <div id="update_email_response" class="alert hide fade in">
+          <button type="button" class="close">&times;</button>
+          <p id="update_email_response_msg"></p>
+        </div>
+        <%= form_for(@user, url: {controller: "users", action: "updateEmail"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
+        <div class="control-group">
+          <label class="control-label" for="email"><strong class="text-success">Email地址</strong></label>
+          <div class="controls">
+            <%= u.text_field :email, id:"email", value:@user.email %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= u.submit "提交", class:"btn btn-warning" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div id="pane4" class="tab-pane">
+        <div id="update_phone_response" class="alert hide fade in">
+          <button type="button" class="close">&times;</button>
+          <p id="update_phone_response_msg"></p>
+        </div>
+        <%= form_for(@user, url: {controller: "users", action: "updatePhone"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
+        <div class="control-group">
+          <label class="control-label" for="email"><strong class="text-success">当前手机号码</strong></label>
+          <div class="controls">
+            <%= u.text_field :old_phone, value:@user.phone, disabled:true %>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="new_phone"><strong class="text-success">新手机号码</strong></label>
+          <div class="controls">
+            <%= text_field "user", "phone", placeholder:"新手机号码", value:''%>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= u.button "发送验证码", remote:true, id:"sendSMS", class:"btn btn-warning" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="auth_code"><strong class="text-success">验证码</strong></label>
+          <div class="controls">
+            <%= text_field "auth","authCode", placeholder:"验证码" %>
+            <%= hidden_field "auth", "hiddenAuthCode" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= u.submit "提交", class:"btn btn-warning" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div id="pane5" class="tab-pane">
+        <div id="update_address_response" class="alert hide fade in">
+          <button type="button" class="close">&times;</button>
+          <p id="update_address_response_msg"></p>
+        </div>
+        <%= form_for(@user, url: {controller: "users", action: "updateAddress"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
+        <div class="control-group">
+          <label class="control-label" for="address"><strong class="text-success">地址信息</strong></label>
+          <div class="controls">
+            <%= u.text_field :address, id:"address", value:@user.address, size:150 %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= u.submit "提交", class:"btn btn-warning" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

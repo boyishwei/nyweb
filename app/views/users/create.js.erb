@@ -1,13 +1,13 @@
 <% if @user.errors.any? %>
 	var error_block = "";
-	<% @user.errors.full_messages.each do |msg| %>
-		error_block +=  '<li><%= msg %></li>'
+	<% @user.errors.each do |attribute, msg| %>
+		error_block +=  '<li><%= msg %></li>';
+		$('#control-group-<%= attribute %>').addClass('error');
 	<% end %>
 	$("#error_explanation").html("<ul>" + error_block + "</ul>" );
 	$("#error_explanation").show();
 <% else %>
 	$('#registerModal').modal('toggle');
-	$("#user_zone").html("<%= j render partial:'users/login', locals:{ user: @user } %>");
 	$('#regSucModal').modal('toggle');
+	$("#user_zone").html("<%= j render partial:'users/login', locals:{ user: @user } %>");
 <% end %>
-

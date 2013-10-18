@@ -1,5 +1,5 @@
 Nyweb::Application.routes.draw do
-  resources :users
+  resources :users#, :only => [:show, :update,:edit]
   resources :sessions, :only => [:new, :create, :destroy]
 
 
@@ -20,6 +20,15 @@ Nyweb::Application.routes.draw do
   match "/sos" => "pub#sos"
   match "/agent" => "pub#agent"
 
+  match "/update_password" => "users#updatePWD"
+  match "/update_email" => "users#updateEmail"
+  match "/update_address" => "users#updateAddress"
+  match "/update_phone" => "users#updatePhone"
+
+
+
+
+  match "*a" => "pub#render_404"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

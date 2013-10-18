@@ -32,6 +32,13 @@
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 1000;
+}
+
+.affix-siderbar {
+	position: fixed;
+	top: 200;
+	width: 100%;
 }
 
 .bg-diet{
@@ -233,14 +240,14 @@
 }
 .banner .dots li {
 	display: inline-block;
-	width: 10px;
-	height: 10px;
+	width: 8px;
+	height: 8px;
 	margin: 0 4px;
 
 	text-indent: -999em;
 
-	border: 2px solid #fff;
-	border-radius: 6px;
+	border: 1px solid #fff;
+	border-radius: 5px;
 
 	cursor: pointer;
 	opacity: .4;
@@ -296,6 +303,21 @@
 	display: inline;
 }
 
-.user-zone{
-	margin: 10px 30px 0 30px;
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  color: #555555;
+  cursor: default;
+  background-color: #f5f5f5;;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
+
+body{
+  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+.slide-bar{
+	background-color: #99CC66; 
+	padding: 30px 0px 20px 0px;
 }

@@ -1,0 +1,16 @@
+<% if @user.errors.any? %>
+        var error_block = "";
+        <% @user.errors.each do |attribute, msg| %>
+                error_block +=  '<li><%= msg %></li>';
+        <% end %>
+	
+        $("#update_email_response_msg").html("<ul>" + error_block + "</ul>" );
+        $("#update_email_response").removeClass("alert-success");
+        $("#update_email_response").addClass("alert-error");
+        $("#update_email_response").show();
+<% else %>
+	$("#update_email_response_msg").html("email地址修改成功.");
+        $("#update_email_response").removeClass("alert-error");
+        $("#update_email_response").addClass("alert-success");
+        $("#update_email_response").show();
+<% end %>

@@ -46,14 +46,12 @@ def create
   @user = User.new(params[:user])
   
   if params[:auth][:authCode] != params[:auth][:hiddenAuthCode]
-    @user.errors.add("验证失败","验证码输入错误")
-    puts @user.errors.full_messages
-    render "new"
+    @user.errors.add(:authcode,"短信验证码输入不正确")
+    puts @user.errors.count
     #respond_to do |format|
     #format.html { render action: "new" } 
     return
   end
-  puts "1111:" + signed_in?.to_s
  
   respond_to do |format|
     if @user.save
@@ -65,7 +63,10 @@ def create
       format.js {}
     else
       puts "save user failed"
+      puts @user.errors.count
       puts @user.errors.full_messages
+      #puts @user.errors.get(:username)
+
       format.html { render action: "new" }
       format.json { render json: @user.errors, status: :unprocessable_entity }
       format.js {}
@@ -88,6 +89,107 @@ def update
       format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
+end
+
+def updatePWD
+	if signed_in?
+		@user = current_user
+		if params[:user][:password].blank? || params[:user][:password_confirmation].blank?
+			@user.errors.add(:password, "密码及确认密码不能为空.")
+		elsif   @user.authenticate(params[:user][:old_password])
+			@user.password = params[:user][:password]
+			@user.password_confirmation = params[:user][:password_confirmation]
+			@user.save
+		else
+			@user.errors.add(:password_incorrect, "旧密码输入不正确，请确认.")
+			puts "更改密码失败"
+		end
+	elsif
+		@user = User.new
+		@user.errors.add(:not_signed_in, "您尚未登录，请先登录再尝试修改密码.")
+	end
+
+	respond_to do |format|
+      		format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      		format.json { head :no_content }
+      		format.js   {}
+   	end
+	
+end
+
+def updateEmail
+        if signed_in?
+                @user = current_user
+                @user.email = params[:user][:email]
+		puts @user.email
+		puts @user.valid?
+		if @user.valid?
+			@user.update_attribute(:email,params[:user][:email])
+		end
+        elsif
+                @user = User.new
+                @user.errors.add(:not_signed_in, "您尚未登录，请先登录再尝试修改.")
+        end
+
+        respond_to do |format|
+                format.html { redirect_to @user, notice: 'User was successfully updated.' }
+                format.json { head :no_content }
+                format.js   {}
+        end
+
+end
+
+def updateAddress
+        if signed_in?
+                @user = current_user
+                @user.address = params[:user][:address]
+                puts @user.address
+                puts @user.valid?
+                if @user.valid?
+                        @user.update_attribute(:address,params[:user][:address])
+                end
+        elsif
+                @user = User.new
+                @user.errors.add(:not_signed_in, "您尚未登录，请先登录再尝试修改.")
+        end
+
+        respond_to do |format|
+                format.html { redirect_to @user, notice: 'User was successfully updated.' }
+                format.json { head :no_content }
+                format.js   {}
+        end
+
+end
+
+def updatePhone
+        if signed_in?
+                @user = current_user
+                @user.phone = params[:user][:phone]
+		
+		if params[:auth][:authCode].blank?
+                        @user.errors.add(:authcode,"请输入验证码")
+                        return
+                end
+        	
+		if params[:auth][:authCode] != params[:auth][:hiddenAuthCode] 
+			@user.errors.add(:authcode,"短信验证码输入不正确")
+                	return
+        	end
+                
+		if @user.valid?
+                        @user.update_attribute(:phone,params[:user][:phone])
+                end
+        elsif
+                @user = User.new
+                @user.errors.add(:not_signed_in, "您尚未登录，请先登录再尝试修改.")
+        end
+
+        respond_to do |format|
+                format.html { redirect_to @user, notice: 'User was successfully updated.' }
+                format.json { head :no_content }
+                format.js   {}
+        end
+
 end
 
 # DELETE /users/1
