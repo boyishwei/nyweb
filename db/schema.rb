@@ -11,7 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130927004014) do
+ActiveRecord::Schema.define(:version => 20131023072944) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "image_id"
+    t.integer  "user_id"
+    t.string   "comment"
+    t.integer  "parent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "image_groups", :force => true do |t|
+    t.string   "group_name"
+    t.string   "category"
+    t.integer  "cover_image_id"
+    t.boolean  "enabled"
+    t.string   "key_word"
+    t.string   "desc"
+    t.integer  "weight_factor"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image_name"
+    t.integer  "group_id"
+    t.boolean  "enabled"
+    t.string   "location"
+    t.string   "key_word"
+    t.string   "desc"
+    t.integer  "weight_factor"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

@@ -68,6 +68,19 @@ class PubController < ApplicationController
                 format.js {}
         end
   end
+  
+  def showSlideModal
+	#simulate a fake group
+	@group = ImageGroup.find(1)
+	puts @group.id
+	
+	@images = @group.images.order("weight_factor desc")
+	
+	first_image_id = @images.first.id	
+	@comments = @images.first.comments.order("id desc")
+
+	@images.each {|i| puts i.location}
+  end
  
   def render_404
 	puts "404 error, received url not correct"

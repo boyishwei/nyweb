@@ -47,9 +47,40 @@ $(function(){
 	                location.href="/";
 		});
 		
-		$('.close').click(function(){
+		$('.close-btn').click(function(){
                         $(this).parent().hide();
                 });
+		
+		
+		$(".modal-body").on('mouseover mouseout click','.carousel-control3', function(event){
+			 if (event.type == 'mouseover') {
+  				$('.caption').fadeIn(200);
+ 			 } else if (event.type == 'mouseout') {
+  				$('.caption').fadeOut(500);
+			 } else if (event.type == 'click') {
+				next_item = $(".item-detector").find(".active").next();
+				var next_image_id;
+				//alert($(".item-detector").find(".active").next().length);
+				if ($(next_item).length == 0)
+					next_image_id = $(".item-detector div:first-child").find(".image_id").val();
+				else
+					next_image_id = $(next_item).find(".image_id").val();
+				$("#hidden_switch").attr("href","comments/" + next_image_id );
+				$("#hidden_switch").click();
+			 }
+		});
+		//$(".pics").hover(
+		//	function(){$(this).find(".caption").fadeOut(500)},
+		//	function(){$(this).find(".caption").fadeIn(200)});
+		
+		$("#comment_submit").click(function(){
+			$("#comment_image_id").val($(".carousel-inner").find(".active").find(".image_id").val());
+		});
+		
+		$(".carousel-control3").on('click',function(){
+			alert(123);
+			alert($("#hidden_switch").attr("href"));
+		});
 });
 
 function disableSMSBtnAndCountDown()

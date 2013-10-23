@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Group name:</b>
+  <%= @image_group.group_name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @image_group.category %>
+</p>
+
+<p>
+  <b>Cover image:</b>
+  <%= @image_group.cover_image_id %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= @image_group.enabled %>
+</p>
+
+<p>
+  <b>Key word:</b>
+  <%= @image_group.key_word %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @image_group.desc %>
+</p>
+
+<p>
+  <b>Weight factor:</b>
+  <%= @image_group.weight_factor %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_group_path(@image_group) %> |
+<%= link_to 'Back', image_groups_path %>

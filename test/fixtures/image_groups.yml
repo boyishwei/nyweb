@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  group_name: MyString
+  category: MyString
+  cover_image_id: 1
+  enabled: false
+  key_word: MyString
+  desc: MyString
+  weight_factor: 1
+
+two:
+  group_name: MyString
+  category: MyString
+  cover_image_id: 1
+  enabled: false
+  key_word: MyString
+  desc: MyString
+  weight_factor: 1

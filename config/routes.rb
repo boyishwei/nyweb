@@ -1,4 +1,11 @@
 Nyweb::Application.routes.draw do
+  resources :image_groups
+
+
+  resources :images
+  resources :comments, :only => [:create, :destroy, :show]
+
+
   resources :users#, :only => [:show, :update,:edit]
   resources :sessions, :only => [:new, :create, :destroy]
 
@@ -19,6 +26,7 @@ Nyweb::Application.routes.draw do
   match "/micropost" => "pub#micropost"
   match "/sos" => "pub#sos"
   match "/agent" => "pub#agent"
+  match "/slide_modal" => "pub#showSlideModal"
 
   match "/update_password" => "users#updatePWD"
   match "/update_email" => "users#updateEmail"

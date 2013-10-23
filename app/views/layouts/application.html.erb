@@ -14,14 +14,15 @@
       <div class="container" style="height: 50px;">
         <a class="brand" href="/">宁优网 </a>
         <ul class="nav">
-          <li><a href="/education">教育·培训</a></li>
-          <li><a href="/cate">美食·餐饮</a></li>
-          <li><a href="/fab">精品售卖</a></li>
-          <li><a href="/tour">旅游·房产</a></li>
-          <li><a href="/beauty">健康·美容</a></li>
-          <li><a href="/micropost">说说</a></li>
-          <li><a href="/sos">需求·发布</a></li>
-          <li><a href="/agent">代理专区</a></li>
+          <li><a href="/education">优 · 学</a></li>
+          <li><a href="/cate">优 · 肴</a></li>
+          <li><a href="/tour">优 · 游</a></li>
+          <li><a href="/beauty">优 · 美</a></li>
+          <li><a href="/micropost">优 · 玩</a></li>
+          <li><a href="/fab">优 · 品</a></li>
+          <li><a href="/sos">优 · 秀</a></li>
+          <li><a href="/agent">优 · 居</a></li>
+          <li><a href="/#">优 · 惠</a></li>
         </ul>
         <div class="pull-right user-zone" id="user_zone">
           <%= render :partial => 'users/login', locals:{ :user=>User.new }%>
@@ -44,6 +45,43 @@
 
   <%= yield %> 
 
+  <!-- Modal -->
+  <div id="slide_modal" class="advanced-modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">图片名称</h3>
+    </div>
+    <div class="modal-body">
+      <div id="image_group_carousel" class="carousel slide" data-ride="carousel">
+      </div>
+      <%= link_to 'switch', 'comments/',  method: :get, remote:true, id:"hidden_switch", class:'btn hide' %>
+      <div class="row">
+        <div class="span5">
+          <div id="comments_area" class="well">
+           
+          </div>
+          
+          
+        </div>
+
+        <div class="span3">
+          <div id="explanation" class="alert alert-error hide fade in">
+            <button type="button" class="close close-btn">&times;</button>
+            <p id="error_msg"></p>
+          </div>
+          <%= form_for(Comment.new, url:comments_path, remote:true) do |c| %>
+          <%= c.text_area :comment , id:"comment_area", rows: 3%>
+          <%= c.hidden_field :image_id %>
+          <%= c.submit "发表评论", id:"comment_submit", class:"btn btn-warning" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+    </div>
+  </div>
+
   <!--footer-->          
   <footer class="footer">
     <div class="container">
@@ -58,15 +96,15 @@
         <li>
           <%=link_to "关于", about_path%>
         </li>
-        <li class="muted">·</li>
+        <li class="muted"> · </li>
         <li>
           <%=link_to "联系我们", contact_path%>
         </li>
-        <li class="muted">·</li>
+        <li class="muted"> · </li>
         <li>
           <%=link_to "招聘", recruit_path%>
         </li>
-        <li class="muted">·</li>
+        <li class="muted"> · </li>
         <li>
           <%=link_to "宁ICP备13000608号", ba_path%>
         </li>

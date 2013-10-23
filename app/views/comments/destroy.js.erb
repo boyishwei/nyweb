@@ -1,0 +1,10 @@
+<% if @comment.errors.any? %>
+        var error_block = "";
+        <% @comment.errors.each do |attribute, msg| %>
+                error_block +=  '<li><%= msg %></li>'
+        <% end %>
+        $('#error_msg').html("<ul>" + error_block + "</ul>" );
+        $('#explanation').show();
+<% else %>
+        $("#comments_area").html("<%= j render partial:'comments/show' %>");
+<% end %>

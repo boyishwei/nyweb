@@ -1,0 +1,45 @@
+<%= form_for(@image_group) do |f| %>
+  <% if @image_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image_group.errors.count, "error") %> prohibited this image_group from being saved:</h2>
+
+      <ul>
+      <% @image_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group_name %><br />
+    <%= f.text_field :group_name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :cover_image_id %><br />
+    <%= f.number_field :cover_image_id %>
+  </div>
+  <div class="field">
+    <%= f.label :enabled %><br />
+    <%= f.check_box :enabled %>
+  </div>
+  <div class="field">
+    <%= f.label :key_word %><br />
+    <%= f.text_field :key_word %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :weight_factor %><br />
+    <%= f.number_field :weight_factor %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

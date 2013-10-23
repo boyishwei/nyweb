@@ -32,7 +32,7 @@
       </div>
       <div id="pane2" class="tab-pane">
         <div id="update_password_response" class="alert hide fade in">
-          <button type="button" class="close">&times;</button>
+          <button type="button" class="close close-btn">&times;</button>
           <p id="update_password_response_msg"></p>
         </div>
         <div id="redirect-warning" class="hide">
@@ -70,7 +70,7 @@
       </div>
       <div id="pane3" class="tab-pane">
         <div id="update_email_response" class="alert hide fade in">
-          <button type="button" class="close">&times;</button>
+          <button type="button" class="close close-btn">&times;</button>
           <p id="update_email_response_msg"></p>
         </div>
         <%= form_for(@user, url: {controller: "users", action: "updateEmail"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
@@ -89,7 +89,7 @@
       </div>
       <div id="pane4" class="tab-pane">
         <div id="update_phone_response" class="alert hide fade in">
-          <button type="button" class="close">&times;</button>
+          <button type="button" class="close close-btn">&times;</button>
           <p id="update_phone_response_msg"></p>
         </div>
         <%= form_for(@user, url: {controller: "users", action: "updatePhone"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>
@@ -126,7 +126,7 @@
       </div>
       <div id="pane5" class="tab-pane">
         <div id="update_address_response" class="alert hide fade in">
-          <button type="button" class="close">&times;</button>
+          <button type="button" class="close close-btn">&times;</button>
           <p id="update_address_response_msg"></p>
         </div>
         <%= form_for(@user, url: {controller: "users", action: "updateAddress"} , remote:true,  html: {id: "user_login",class: "form-horizontal"}) do |u| %>

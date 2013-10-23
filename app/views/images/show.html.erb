@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image name:</b>
+  <%= @image.image_name %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @image.group_id %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= @image.enabled %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @image.location %>
+</p>
+
+<p>
+  <b>Key word:</b>
+  <%= @image.key_word %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @image.desc %>
+</p>
+
+<p>
+  <b>Weight factor:</b>
+  <%= @image.weight_factor %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

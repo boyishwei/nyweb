@@ -1,0 +1,20 @@
+var carousel_html = "<div class='carousel-inner item-detector'>";
+var comments_html = "";
+<% @images.each do |image| %>
+	carousel_html += "	<div class='item pics'>";
+	carousel_html += "		<input class='image_id' type='hidden' value='<%= image.id %>'>";	
+	carousel_html += "		<img src='<%= image.location %>'>";
+	carousel_html += "		<div class='carousel-caption caption'><p><%= image.desc %></p></div>";
+	carousel_html += "	</div>";
+<% end %>
+carousel_html += "</div>";
+carousel_html += "<a class='carousel-control3 left' href='#image_group_carousel' data-slide='prev'></a>";
+carousel_html += "<a class='carousel-control3 right' href='#image_group_carousel' data-slide='next'></a>";
+//carousel_html += "<%= link_to 'swich_comments', 'comments/', method: :show, remote:true, class:'btn hide' %>";
+$("#image_group_carousel").html(carousel_html);
+$("#image_group_carousel").find(".item:first").addClass("active");
+$("#image_group_carousel").carousel('pause');
+
+$("#comments_area").html("<%= j render partial:'comments/show' %>");
+
+$("#slide_modal").modal("show"); 
