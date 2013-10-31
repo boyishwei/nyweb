@@ -8,6 +8,7 @@ Nyweb::Application.routes.draw do
 
   resources :users#, :only => [:show, :update,:edit]
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :messages, :only => [:index, :new, :create, :show, :destroy]
 
 
   get "pub/index"
@@ -23,9 +24,11 @@ Nyweb::Application.routes.draw do
   match "/fab" => "pub#fab"
   match "/tour" => "pub#tour"
   match "/beauty" => "pub#beauty"
-  match "/micropost" => "pub#micropost"
-  match "/sos" => "pub#sos"
-  match "/agent" => "pub#agent"
+  match "/entertainment" => "pub#entertainment"
+  match "/show" => "pub#show"
+  match "/decoration" => "pub#decoration"
+  match "/promotion" => "pub#promotion"
+
   match "/slide_modal" => "pub#showSlideModal"
 
   match "/update_password" => "users#updatePWD"

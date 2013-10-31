@@ -1,7 +1,8 @@
    <% if !signed_in? %>
    <a class="btn btn-link" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
    <a class="btn btn-link" data-toggle="modal" href="#registerModal">注册</a>
-   <button type="button" class="btn btn-succsess">发布需求</button>
+   <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-success btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
+
    <!--login modal-->
    <div id="regSucModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myRegSucLabel" aria-hidden="true">
     <div class="modal-header">
@@ -134,5 +135,6 @@
             <li><a href="#"><span class="icon-wrench"></span> 修改密码</a></li>
         </ul>
     </div>
+    <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-success btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
 </div>
 <% end %>

@@ -13,8 +13,6 @@ class CommentsController < ApplicationController
 		return
 	end
 
-	puts "====>>>>>>>>>>>>>>>>>>"
-	puts @comment.to_s	
 	@comment.save
 	
 	@comments = @comment.image.comments.order("id desc")
@@ -23,16 +21,13 @@ class CommentsController < ApplicationController
   def show
 	#notice, the params[:id] here is not a comment id, even the url is comments/:id, but actually, it's a image id passed in
 	@image = Image.find(params[:id])
-	@comments = @image.comments.order("id desc")
+	@comments = @image.comments.order("id desc").page(params[:page])
   end
 
   def destroy
 	@comment = Comment.find(params[:id])
-	puts @comment.comment
-	puts @comment.id
 	@comment.destroy
 
 	@comments = @comment.image.comments.order("id desc")
-	puts @comment.errors.full_messages
   end
 end

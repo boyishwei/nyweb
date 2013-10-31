@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131023072944) do
+ActiveRecord::Schema.define(:version => 20131030092922) do
 
   create_table "comments", :force => true do |t|
     t.integer  "image_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(:version => 20131023072944) do
     t.integer  "weight_factor"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "message"
+    t.integer  "parent_id"
+    t.boolean  "reply_flag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

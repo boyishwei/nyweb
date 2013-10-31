@@ -5,7 +5,11 @@ class PubController < ApplicationController
   @auth_code
 
   def get_current_user
-@user = (signed_in?) ? current_user : User.new
+	@user = (signed_in?) ? current_user : User.new
+  end
+
+  def getImageGroup(category)
+	ImageGroup.order("weight_factor desc").where("category = '#{category}'").page(1)
   end
 
   def index
@@ -29,37 +33,60 @@ class PubController < ApplicationController
   end
 
   def edu
-       @user = (signed_in?) ? current_user : User.new
+	get_current_user
+	@groups = getImageGroup('edu')
+	@comments = Comment.page(params[:page])
+	
+	@groups.each do |g|
+		puts g.group_name
+	end
   end
 
   def cate
  	get_current_user 
+	@groups = getImageGroup('cate')
   end
 
   def fab
  	get_current_user 
+	@groups = getImageGroup('fab')
   end
 
   def tour
  	get_current_user 
+	@groups = getImageGroup('tour')
   end
 
   def beauty
  	get_current_user 
+	@groups = getImageGroup('beauty')
   end
 
-  def mircopost
+  def entertainment
  	get_current_user 
-  end
+	@groups = getImageGroup('mircopost')
+  end 
 
   def sos
  	get_current_user 
+	@groups = getImageGroup('sos')
   end
 
-  def agent
+  def show
+        get_current_user
+        @groups = getImageGroup('show')
+  end
+
+  def decoration
  	get_current_user 
+	@groups = getImageGroup('decoration')
   end
-
+  
+  def promotion
+        get_current_user
+        @groups = getImageGroup('promotion')
+  end
+  
   def sendSMS
   	@auth_code=123223
  	puts @auth_code
@@ -77,7 +104,7 @@ class PubController < ApplicationController
 	@images = @group.images.order("weight_factor desc")
 	
 	first_image_id = @images.first.id	
-	@comments = @images.first.comments.order("id desc")
+	@comments = @images.first.comments.order("id desc").page(1)
 
 	@images.each {|i| puts i.location}
   end

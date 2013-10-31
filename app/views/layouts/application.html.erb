@@ -18,12 +18,15 @@
           <li><a href="/cate">优 · 肴</a></li>
           <li><a href="/tour">优 · 游</a></li>
           <li><a href="/beauty">优 · 美</a></li>
-          <li><a href="/micropost">优 · 玩</a></li>
+          <li><a href="/entertainment">优 · 玩</a></li>
           <li><a href="/fab">优 · 品</a></li>
-          <li><a href="/sos">优 · 秀</a></li>
-          <li><a href="/agent">优 · 居</a></li>
-          <li><a href="/#">优 · 惠</a></li>
+          <li><a href="/show">优 · 秀</a></li>
+          <li><a href="/decoration">优 · 居</a></li>
+          <li><a href="/promotion">优 · 惠</a></li>
         </ul>
+        <div style="display:inline-block">
+          <h4><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;只为好产品代言</em></h4>
+        </div>
         <div class="pull-right user-zone" id="user_zone">
           <%= render :partial => 'users/login', locals:{ :user=>User.new }%>
         </div>
@@ -99,6 +102,10 @@
         <li class="muted"> · </li>
         <li>
           <%=link_to "联系我们", contact_path%>
+        </li>
+        <li class="muted"> · </li>
+        <li>
+          <%=link_to "给我们留言", new_message_path%>
         </li>
         <li class="muted"> · </li>
         <li>

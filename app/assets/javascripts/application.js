@@ -58,13 +58,21 @@ $(function(){
  			 } else if (event.type == 'mouseout') {
   				$('.caption').fadeOut(500);
 			 } else if (event.type == 'click') {
-				next_item = $(".item-detector").find(".active").next();
+				var next_image_anchor_clicked = $(this).hasClass("right");
+				var indicator ="";
+				
+				if ( next_image_anchor_clicked )
+					{ next_item = $(".item-detector").find(".active").next(); indicator = "first-child"; }
+				else
+					{ next_item = $(".item-detector").find(".active").prev(); indicator = "last-child"; }
+
 				var next_image_id;
-				//alert($(".item-detector").find(".active").next().length);
+				
 				if ($(next_item).length == 0)
-					next_image_id = $(".item-detector div:first-child").find(".image_id").val();
+					next_image_id = $(".item-detector div:" + indicator).find(".image_id").val();
 				else
 					next_image_id = $(next_item).find(".image_id").val();
+				
 				$("#hidden_switch").attr("href","comments/" + next_image_id );
 				$("#hidden_switch").click();
 			 }
@@ -81,6 +89,8 @@ $(function(){
 			alert(123);
 			alert($("#hidden_switch").attr("href"));
 		});
+		
+		$("#message-anchor").tooltip();
 });
 
 function disableSMSBtnAndCountDown()

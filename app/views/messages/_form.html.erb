@@ -1,0 +1,19 @@
+<%= form_for(@message, remote:true) do |m| %>
+  <br />
+  <!--<div class="alert alert-success"><%= m.label "我们将会认真听取您提出的宝贵建议，，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑!", for:"message_area" %></div>  -->
+  <div id="message_response" class="alert hide"></div>
+
+
+  <div class="field message_form">
+    <br />
+    <%= m.text_area :message ,  cols: 30, rows: 5, id:"message_area", style:"width:50%;" %>
+  </div>
+  <div class="message_form">
+    匿名留言
+    <%= check_box "input", "anonymous", {}, "1", "0" %>
+  </div>
+  <div class="message_form">
+    <%= m.submit "完成", class:"btn btn-warning"%>
+  </div>
+<% end %>
+<%=link_to "查看更多其它留言", messages_path%>

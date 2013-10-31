@@ -2,9 +2,9 @@
   <div class="container">
     <div id="edu_slide" class="banner">
       <ul>
-        <li><img src="images/placeholder/1170X300.gif" alt="prod_show" /></li>
-        <li><img src="images/placeholder/1170X300.gif" alt="prod_show" /></li>
-        <li><img src="images/placeholder/1170X300.gif" alt="prod_show" /></li>
+        <li><img src="assets/images/placeholder/1170X300.gif" alt="prod_show" /></li>
+        <li><img src="assets/images/placeholder/1170X300.gif" alt="prod_show" /></li>
+        <li><img src="assets/images/placeholder/1170X300.gif" alt="prod_show" /></li>
       </ul>
     </div>
   </div>
@@ -33,81 +33,11 @@
 <!--news div-->
 <a id="makeup"></a>
 <br>
-<!--sections-->
-<section id="primary">
-  <div class="section">
-    <div class="container modules">
-      <div class="row-fluid">
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>      
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-        <ul class="thumbnails" id="p-shuxue">
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-          <li class="span4">
-            <a href="#" class="thumbnail"><img src="images/placeholder/360X200.gif" alt="prod_show" /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
+<div class="container modules">
+  <div class="row-fluid">
+    <%= render :partial=>'image_groups' %>
   </div>
-</section>
+</div>
 
 <script type="text/javascript">
 $('#edu_slide').unslider({

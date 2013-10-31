@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :address, :email, :password,:password_confirmation, :phone, :username
   has_many :comments
+  has_many :leave_messages
  
   #has_secure_password
 

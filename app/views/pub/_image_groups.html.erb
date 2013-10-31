@@ -1,0 +1,10 @@
+<% for i in 1..@groups.total_pages %>
+	<ul class="thumbnails">
+		<% @groups.page(i).each do|group| %>
+			<li class="span4">
+				<%= link_to image_tag("#{group.cover.location}"), slide_modal_path, class:"thumbnail", remote:true %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+<%= paginate @groups %>

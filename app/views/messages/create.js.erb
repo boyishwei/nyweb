@@ -1,0 +1,16 @@
+<% if @message.errors.any? %>
+	var error_block = "";
+	<% @message.errors.each do |attribute, msg| %>
+		error_block +=  '<li><%= msg %></li>';
+	<% end %>
+	$("#message_response").html("<ul>" + error_block + "</ul>" );
+	$("#message_response").addClass("alert-error");	
+	$("#message_response").removeClass("alert-success");	
+	$("#message_response").show();
+<% else %>
+	$("#message_response").html("留言已经提交，谢谢您提供的宝贵反馈!");
+	$("#message_response").removeClass("alert-error");
+	$("#message_response").addClass("alert-success");
+	$("#message_response").show();
+	$(".message_form").fadeOut(1000);
+<% end %>

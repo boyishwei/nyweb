@@ -2,7 +2,7 @@ $('#nx_focus').unslider({
           fluid: true,
           keys: true,
           dots: true  
-        });
+});
 
 $('#registerModal').on('hidden', function () {
 	$("#error_explanation").html();
