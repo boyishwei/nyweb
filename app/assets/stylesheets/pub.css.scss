@@ -314,7 +314,12 @@
 }
 
 body{
-  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	font-size: 16px;  
+}
+
+.navbar .brand {
+	font-size: 24px;
 }
 
 .slide-bar{
@@ -370,4 +375,8 @@ filter: alpha(opacity=50);
 .carousel-control3.right {
   right: 0;
   left: auto;
+}
+
+.img_cover{
+	height: 200px;
 }

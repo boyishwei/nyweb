@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030092922) do
+ActiveRecord::Schema.define(:version => 20131101095824) do
 
   create_table "comments", :force => true do |t|
     t.integer  "image_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20131030092922) do
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin"
   end
 
 end

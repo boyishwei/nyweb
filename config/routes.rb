@@ -29,14 +29,15 @@ Nyweb::Application.routes.draw do
   match "/decoration" => "pub#decoration"
   match "/promotion" => "pub#promotion"
 
-  match "/slide_modal" => "pub#showSlideModal"
+  match "/slide_modal/:id" => "pub#showSlideModal"
+  match "/slide_modal" => "pub#showSlideModalFake"
 
   match "/update_password" => "users#updatePWD"
   match "/update_email" => "users#updateEmail"
   match "/update_address" => "users#updateAddress"
   match "/update_phone" => "users#updatePhone"
 
-
+  match "/admin" => "pub#admin"
 
 
   match "*a" => "pub#render_404"

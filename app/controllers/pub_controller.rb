@@ -9,7 +9,7 @@ class PubController < ApplicationController
   end
 
   def getImageGroup(category)
-	ImageGroup.order("weight_factor desc").where("category = '#{category}'").page(1)
+	ImageGroup.order("weight_factor asc").where(" enabled = true and category = '#{category}'").page(1)
   end
 
   def index
@@ -64,7 +64,7 @@ class PubController < ApplicationController
 
   def entertainment
  	get_current_user 
-	@groups = getImageGroup('mircopost')
+	@groups = getImageGroup('entertainment')
   end 
 
   def sos
@@ -98,15 +98,32 @@ class PubController < ApplicationController
   
   def showSlideModal
 	#simulate a fake group
-	@group = ImageGroup.find(1)
+	@group = ImageGroup.find(params[:id])
 	puts @group.id
 	
-	@images = @group.images.order("weight_factor desc")
+	@images = @group.images.order("weight_factor asc")
 	
 	first_image_id = @images.first.id	
-	@comments = @images.first.comments.order("id desc").page(1)
+	@comments = @images.first.comments.order("id asc").page(1)
 
 	@images.each {|i| puts i.location}
+  end
+ 
+  def showSlideModalFake
+	#simulate a fake group
+	@group = ImageGroup.find(5)
+	puts @group.id
+	
+	@images = @group.images.order("weight_factor asc")
+	
+	first_image_id = @images.first.id	
+	@comments = @images.first.comments.order("id asc").page(1)
+
+	@images.each {|i| puts i.location}
+  end
+ 
+  def admin
+	
   end
  
   def render_404

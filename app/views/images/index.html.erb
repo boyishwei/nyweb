@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Image id</th>
     <th>Image name</th>
     <th>Group</th>
     <th>Enabled</th>
@@ -16,6 +17,7 @@
 
 <% @images.each do |image| %>
   <tr>
+    <td><%= image.id %></td>
     <td><%= image.image_name %></td>
     <td><%= image.group_id %></td>
     <td><%= image.enabled %></td>

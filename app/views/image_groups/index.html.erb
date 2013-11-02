@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Group id</th>
     <th>Group name</th>
     <th>Category</th>
     <th>Cover image</th>
@@ -16,6 +17,7 @@
 
 <% @image_groups.each do |image_group| %>
   <tr>
+    <td><%= image_group.id %></td>
     <td><%= image_group.group_name %></td>
     <td><%= image_group.category %></td>
     <td><%= image_group.cover_image_id %></td>
