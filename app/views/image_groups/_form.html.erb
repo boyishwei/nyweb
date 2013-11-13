@@ -1,45 +1,112 @@
-<%= form_for(@image_group) do |f| %>
-  <% if @image_group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image_group.errors.count, "error") %> prohibited this image_group from being saved:</h2>
+<%= form_for(@image_group, remote:true, html: { class:"form-horizontal" } ) do |f| %>
+<% if @image_group.errors.any? %>
+<div id="error_explanation" class="alert alert-error">
+  <ul>
+    <% @image_group.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-      <ul>
-      <% @image_group.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :group_name %><br />
+<div class="field control-group">
+  <%= f.label "图组名", class:"control-label" %>
+  <div class="controls">
     <%= f.text_field :group_name %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+</div>
+<div class="field control-group">
+  <%= f.label "所属分类", class:"control-label" %>
+  <div class="controls">
+    <%= f.select :category_id,  Category.all.collect {|c| [ c.name, c.id ] }, { selected: (@image_group.category_id.nil?) ?  category_id : @image_group.category_id  } %>
   </div>
-  <div class="field">
-    <%= f.label :cover_image_id %><br />
-    <%= f.number_field :cover_image_id %>
-  </div>
-  <div class="field">
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
-  </div>
-  <div class="field">
-    <%= f.label :key_word %><br />
+</div>
+<div class="field control-group">
+  <%= f.label "关键字", class:"control-label" %>
+  <div class="controls">
     <%= f.text_field :key_word %>
   </div>
-  <div class="field">
-    <%= f.label :desc %><br />
+</div>
+<div class="field control-group">
+  <%= f.label "描述", class:"control-label" %>
+  <div class="controls">
     <%= f.text_field :desc %>
   </div>
-  <div class="field">
-    <%= f.label :weight_factor %><br />
+</div>
+<div class="field control-group">
+  <%= f.label "权重", class:"control-label" %>
+  <div class="controls">
     <%= f.number_field :weight_factor %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+
+<% if !@image_group.id.nil? %>
+<div class="field control-group">
+  <%= f.label "封面图选择", class:"control-label" %>
+  <div class="controls">
+    <%= f.hidden_field :cover_image_id %>
+    <span id="cover_image">
+      <% if !@image_group.cover_image_id.nil? %>
+        <%= image_tag @image_group.cover.location, size:"100x50" %>
+      <% end  %>
+    </span>
+    <%= link_to "选择", image_select_path(group_id:@image_group.id), remote:true, class:"btn btn-link" %>
   </div>
+</div>
+<div class="field control-group">
+  <%= f.label "内容图选择", class:"control-label" %>
+  <div class="controls">
+    <%= hidden_field "images", "removed" %>
+    <%= hidden_field "images", "added" %>
+    <span id="content_image">
+      <% @image_group.images.each do |image| %>
+        <%= image_tag image.location, size:"100x50" %>
+      <% end  %>
+    </span>
+    <%= link_to "选择", image_select_path(group_id:@image_group.id, content:true), remote:true, class:"btn btn-link", 'data-toggle'=>"modal" %>
+  </div>
+</div>
+<% end  %>
+
+<div class="field control-group">
+  <div class="controls">
+    <%= f.check_box :enabled, { disabled: (true unless !@image_group.id.nil?) }, true, false %>
+    <span>&nbsp;&nbsp;&nbsp;使之生效</span>
+    <strong class="text-error"><abbr title="只能在为该图组选择好图片并且指定封面后才能被置为 生效 状态"> *</abbr></strong>
+  </div>
+</div>
+<div class="actions control-group">
+  <div class="controls">
+    <%= f.submit "提交", remote:true, class:"btn btn-warning"  %>
+  </div>
+</div>
 <% end %>
+
+
+<!-- Modal -->
+<div id="select_img_modal" class="advanced-modal hide fade" role="dialog" aria-labelledby="imgModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3  id="imgModal">选择图片</h3>
+  </div>
+  <div id="modal_body" class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button id="btn_confirm" class="btn btn-primary">确认</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+  </div>
+</div
+
+<!-- Modal -->
+<div id="sel_grp_img" class="advanced-modal hide fade" role="dialog" aria-labelledby="grpImgModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3  id="grpImgModal">选择图片</h3>
+  </div>
+  <div id="grp_img_body" class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button id="grp_img_confirm" class="btn btn-primary">确认</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+  </div>
+</div>

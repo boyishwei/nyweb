@@ -38,6 +38,8 @@ Nyweb::Application.routes.draw do
   match "/update_phone" => "users#updatePhone"
 
   match "/admin" => "pub#admin"
+  match "/image_select" => "image_groups#image_select"
+  match "/gravatar" => "pub#gravatar"
 
 
   match "*a" => "pub#render_404"

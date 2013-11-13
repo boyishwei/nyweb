@@ -8,8 +8,11 @@ class PubController < ApplicationController
 	@user = (signed_in?) ? current_user : User.new
   end
 
-  def getImageGroup(category)
-	ImageGroup.order("weight_factor asc").where(" enabled = true and category = '#{category}'").page(1)
+  def getImageGroup(category_id)
+	if category_id == nil
+		category_id = 1
+	end
+	ImageGroup.order("weight_factor asc").where(" enabled = true and category_id = '#{category_id}'").page(1)
   end
 
   def index
@@ -34,7 +37,7 @@ class PubController < ApplicationController
 
   def edu
 	get_current_user
-	@groups = getImageGroup('edu')
+	@groups = getImageGroup(1)
 	@comments = Comment.page(params[:page])
 	
 	@groups.each do |g|
@@ -44,27 +47,27 @@ class PubController < ApplicationController
 
   def cate
  	get_current_user 
-	@groups = getImageGroup('cate')
+	@groups = getImageGroup(2)
   end
 
   def fab
  	get_current_user 
-	@groups = getImageGroup('fab')
+	@groups = getImageGroup(6)
   end
 
   def tour
  	get_current_user 
-	@groups = getImageGroup('tour')
+	@groups = getImageGroup(3)
   end
 
   def beauty
  	get_current_user 
-	@groups = getImageGroup('beauty')
+	@groups = getImageGroup(4)
   end
 
   def entertainment
  	get_current_user 
-	@groups = getImageGroup('entertainment')
+	@groups = getImageGroup(5)
   end 
 
   def sos
@@ -74,17 +77,17 @@ class PubController < ApplicationController
 
   def show
         get_current_user
-        @groups = getImageGroup('show')
+        @groups = getImageGroup(7)
   end
 
   def decoration
  	get_current_user 
-	@groups = getImageGroup('decoration')
+	@groups = getImageGroup(8)
   end
   
   def promotion
         get_current_user
-        @groups = getImageGroup('promotion')
+        @groups = getImageGroup(9)
   end
   
   def sendSMS
@@ -123,7 +126,12 @@ class PubController < ApplicationController
   end
  
   def admin
-	
+	@image_groups = getImageGroup(1)
+	@categorys = Category.all
+	puts @image_groups.size
+  end
+
+  def gravatar
   end
  
   def render_404

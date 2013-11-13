@@ -377,6 +377,32 @@ filter: alpha(opacity=50);
   left: auto;
 }
 
-.img_cover{
+.img-cover{
 	height: 200px;
+}
+
+.body-filler{
+	height: 500px;
+}
+
+.thumbnail-selection{
+	padding: 0px;
+}
+
+a.thumbnail-selection:hover,
+a.thumbnail-selection:focus {
+  border-color: #FF9900;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+
+.selected{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.abc{
+	position: relative;
 }

@@ -1,0 +1,26 @@
+<% for i in 1..@images.total_pages %>
+	<ul class="thumbnails old-images">
+		<% @images.page(i).each do |image| %>
+			<li class="span4 abc">
+				<i data-image-id="<%= image.id %>" <% if image.id == @group.cover_image_id || @contentSelection == 'true' %>class="icon-ok icon-white selected"<% end %>></i>
+				<%= link_to image_tag("#{image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
+				<!-- a 'mutiple' or 'non-mutiple' class will append to this link for mutiple or non-mutiple image selection, which will be added after the ajax invocation in the unobtrusive js image_select.js.erb -->
+			</li>
+		<% end %>
+	</ul>
+<% end  %>
+<% if !@available_images.nil?  %>
+<span>可选图片</span>
+<hr>
+	<% for i in 1..@available_images.total_pages %>
+		<ul class="thumbnails new-images">
+			<% @available_images.page(i).each do |image| %>
+				<li class="span4 abc">
+					<i data-image-id="<%= image.id %>" <% if image.id == @group.cover_image_id %>class="icon-ok icon-white selected"<% end %>></i>
+					<%= link_to image_tag("#{image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
+					<!-- a 'mutiple' or 'non-mutiple' class will append to this link for mutiple or non-mutiple image selection, which will be added after the ajax invocation in the unobtrusive js image_select.js.erb -->
+				</li>
+			<% end %>
+		</ul>
+	<% end  %>
+<% end  %>

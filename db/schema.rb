@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131101095824) do
+ActiveRecord::Schema.define(:version => 20131108162938) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "image_id"
@@ -24,14 +31,14 @@ ActiveRecord::Schema.define(:version => 20131101095824) do
 
   create_table "image_groups", :force => true do |t|
     t.string   "group_name"
-    t.string   "category"
+    t.string   "category_id"
     t.integer  "cover_image_id"
-    t.boolean  "enabled"
+    t.boolean  "enabled",        :default => false
     t.string   "key_word"
     t.string   "desc"
     t.integer  "weight_factor"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "images", :force => true do |t|
@@ -60,11 +67,11 @@ ActiveRecord::Schema.define(:version => 20131101095824) do
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           :default => false
   end
 
 end

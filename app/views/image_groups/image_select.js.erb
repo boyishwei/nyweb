@@ -1,0 +1,58 @@
+$("#modal_body").html('<%= j render 'image_shower' %>');
+
+<% if @contentSelection == 'true' %>
+	$("#modal_body").find("a").addClass("mutiple");
+
+	//unbind click function on confirm button
+	$('#btn_confirm').unbind('click');
+
+	//bind confirmation funtion, this will display the selected image as cover image  on the image group page
+	$("#btn_confirm").bind("click", function(){
+		var removed_images = new Array(0);
+		var added_images = new Array(0);
+		
+		//detect the removed image id
+		$(".old-images").find("i").not(".selected").each(function(index){
+			removed_images[index]=$(this).data("image-id");
+		});
+		//and store it within a hidden input named with images_removed
+		$("#images_removed").val(removed_images.toString());
+
+		//detect the new added image id
+		$(".new-images").find("i.selected").each(function(index){
+			added_images[index]=$(this).data("image-id");
+		});
+
+		//and store it within a hidden input named with images_added
+		$("#images_added").val(added_images.toString());
+
+		var content = "";
+		$("i.selected+a>img").each(function(){
+			content += "<img src='" + $(this).attr("src") + "' width='100'>";
+		});
+
+		$("#content_image").html(content);
+		$("#select_img_modal").modal('hide');
+	});
+	//bind over
+
+<% else %>
+	$("#modal_body").find("a").addClass("non-mutiple");
+
+	//unbind click function on confirm button
+	$('#btn_confirm').unbind('click');
+
+	//bind confirmation funtion, this will display the all the selected image on the main image group page
+	$("#btn_confirm").bind("click", function(){
+		var imgsrc = $("i.selected+a>img").attr("src");
+        var image_id = $("i.selected").data("image-id");
+        
+        $("#cover_image").html("<img src='" + imgsrc + "' width='100'>");
+        $("#cover_image").parent().find("input").val(image_id);
+        $("#select_img_modal").modal('hide');
+	});
+	//bind over
+
+<% end %>
+
+$("#select_img_modal").modal('show');

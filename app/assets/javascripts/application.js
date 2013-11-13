@@ -91,6 +91,24 @@ $(function(){
 		});
 		
 		$("#message-anchor").tooltip();
+
+		$("#subpage-pane").on("click", ".non-mutiple", function(event){
+			$("#modal_body").find('i').removeAttr("class");
+			$(this).parent().find('i').addClass("icon-ok icon-white selected");
+		});
+	
+		$("#subpage-pane").on("click", ".mutiple", function(event){
+                        $(this).parent().find('i').toggleClass("icon-ok icon-white selected");
+                });
+
+		$("#subpage-pane").on("click", "#btn111_confirm", function(event){
+			var imgsrc = $("i.selected+a>img").attr("src");
+			var image_id = $("i.selected").data("image-id");
+			//alert(imgsrc);
+			$("#cover_image").html("<img src='" + imgsrc + "' width='100'>");
+			$("#cover_image").parent().find("input").val(image_id);
+			$("#select_img_modal").modal('hide');
+		});
 });
 
 function disableSMSBtnAndCountDown()
@@ -147,4 +165,12 @@ function countDown4redirect()
 		location.href="/";
 		cd4rd=0;
         }
+}
+
+function confirm4coverSel(){
+	alert("cover");
+}
+
+function confirm4contentImageSel(){
+	alert("content");
 }

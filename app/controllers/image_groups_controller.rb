@@ -2,12 +2,13 @@ class ImageGroupsController < ApplicationController
   # GET /image_groups
   # GET /image_groups.json
   def index
-    @image_groups = ImageGroup.all
+    @category_id = params[:category_id]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @image_groups }
+    if @category_id == nil
+    	@category_id = 1
     end
+    
+    @image_groups = ImageGroup.order("weight_factor asc").where(" enabled = true and category_id = '#{@category_id}'").page(1)
   end
 
   # GET /image_groups/1
@@ -25,10 +26,15 @@ class ImageGroupsController < ApplicationController
   # GET /image_groups/new.json
   def new
     @image_group = ImageGroup.new
-
+    @category_id = params[:category_id]
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    puts "xxxx" unless  !@image_group.id.nil? 
+    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @image_group }
+      #format.js { render js:"$('#subpage-pane').html('<%= j render :partial=>form %>')" }
+      format.js {}
     end
   end
 
@@ -41,14 +47,18 @@ class ImageGroupsController < ApplicationController
   # POST /image_groups.json
   def create
     @image_group = ImageGroup.new(params[:image_group])
-
+    puts params[:image_group]
+    puts params[:image_group][:enabled]
+    
     respond_to do |format|
       if @image_group.save
         format.html { redirect_to @image_group, notice: 'Image group was successfully created.' }
         format.json { render json: @image_group, status: :created, location: @image_group }
+        format.js {}
       else
         format.html { render action: "new" }
         format.json { render json: @image_group.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -57,14 +67,47 @@ class ImageGroupsController < ApplicationController
   # PUT /image_groups/1.json
   def update
     @image_group = ImageGroup.find(params[:id])
+    puts params[:image_group]
+
+    if !params[:images][:removed].blank?
+      puts "removed images" + params[:images][:removed]
+      removedImages = Image.where(" id in (?)", params[:images][:removed].split(','))
+
+      #remove the image from a group
+      removedImages.each do |ri|
+        ri.group_id=nil
+        ri.save
+      end
+    end
+
+    if !params[:images][:added].blank?
+      puts "new added images" + params[:images][:added]
+      addedImages = Image.where(" id in (?)", params[:images][:added].split(','))
+
+      #remove the image from a group
+      addedImages.each do |ai|
+        ai.group_id=params[:id]
+        ai.save
+      end
+    end    
+
+    if @image_group.cover_image_id.nil?
+      @image_group.errors.add(:nil_cover, "必须指定封面图片才能使该图组生效")
+      return
+    elsif @image_group.images.nil?
+      @image_group.errors.add(:nil_images, "必须指定内容图片才能使该图组生效")
+      return    
+    end
 
     respond_to do |format|
       if @image_group.update_attributes(params[:image_group])
         format.html { redirect_to @image_group, notice: 'Image group was successfully updated.' }
         format.json { head :no_content }
+        format.js {}
       else
         format.html { render action: "edit" }
         format.json { render json: @image_group.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end
@@ -78,6 +121,21 @@ class ImageGroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to image_groups_url }
       format.json { head :no_content }
+      format.js {}
     end
   end
+
+  def image_select
+   group_id = params[:group_id]
+   @group = ImageGroup.find_by_id(params[:group_id])
+
+   @contentSelection = params[:content]
+
+   @images = @group.images.page(1)
+
+   if params[:content] == "true"
+    @available_images = Image.where(" enabled = true and (group_id is null or group_id = '')").page(1)
+  end
+  puts @available_images
+end
 end

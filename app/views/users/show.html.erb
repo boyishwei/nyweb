@@ -1,7 +1,23 @@
 <div class="container">
   <hr>
   <div class="tabbable tabs-left" style="height: 500px;">
-    <ul class="nav nav-tabs">
+    <div class="float-left">
+      <%= gravatar_for @user %>
+      <div>
+        <em>&nbsp;<%= @user.username %></em> 
+      </div>
+      <div>
+        <%= link_to "更改头像", "http://gravatar.com/emails", class:"btn btn-link" %>  
+      </div>
+      <div>
+        <abbr title="如何使用Gravatar?">
+          <%= link_to "Gravatar?", gravatar_path, class:"btn btn-link" %>
+        </abbr>
+
+      </div>
+    </div>
+
+    <ul class="nav nav-tabs nav-stacked">
       <li class="active"><a href="#pane1" data-toggle="tab">基本信息</a></li>
       <li><a href="#pane2" data-toggle="tab">更改密码</a></li>
       <li><a href="#pane3" data-toggle="tab">更改email地址</a></li>

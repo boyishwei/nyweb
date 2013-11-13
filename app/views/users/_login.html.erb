@@ -128,13 +128,13 @@
         </button>
         <ul class="dropdown-menu">
             <li>
-                <%= link_to(@user) do %>
-                  <span class='icon-edit'></span> 个人资料
+                <%= link_to(current_user) do %>
+                <span class='icon-edit'></span> 个人资料
                 <% end %>
             </li>
             <li><a href="#"><span class="icon-wrench"></span> 修改密码</a></li>
             <% if current_user.admin==true %>
-                <li><a href="/admin"><span class="icon-briefcase"></span> 后台管理</a></li>
+            <li><a href="/admin"><span class="icon-briefcase"></span> 后台管理</a></li>
             <% end  %>
         </ul>
     </div>
