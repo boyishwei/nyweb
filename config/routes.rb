@@ -1,4 +1,10 @@
 Nyweb::Application.routes.draw do
+  get "password_resets/new"
+
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
   resources :image_groups
 
 
@@ -9,6 +15,7 @@ Nyweb::Application.routes.draw do
   resources :users#, :only => [:show, :update,:edit]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :messages, :only => [:index, :new, :create, :show, :destroy]
+  resources :password_resets
 
 
   get "pub/index"

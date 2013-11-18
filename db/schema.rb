@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131108162938) do
+ActiveRecord::Schema.define(:version => 20131117022405) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -67,11 +67,13 @@ ActiveRecord::Schema.define(:version => 20131108162938) do
     t.string   "email"
     t.string   "phone"
     t.string   "address"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                  :default => false
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

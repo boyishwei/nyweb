@@ -1,0 +1,16 @@
+<div class="container" style="text-align:center; height: 500px;"> 
+	<% flash.each do |key, value| %>
+    	<%= content_tag(:div, value, class: "alert alert-success") %>
+    <% end %>
+	<%= form_tag password_resets_path, :method => :post do %>
+	<hr>
+	  <div class="field">
+	    <%= label_tag :email, "输入你的email地址进行密码重置:" %>
+	    <%= text_field_tag :email, params[:email] %>
+	  </div>
+	  <div class="actions">
+	  	<%= submit_tag "重置密码", class:"btn btn-primary" %>
+	  </div>
+	<% end %>
+	<hr>
+</div>

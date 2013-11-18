@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 	def create
 		@user = User.find_by_username(params[:user][:username]);
 	#user = User.find(:all,:conditions=>["username=? and password_digest=password(?)",params[:user][:username],params[:user][:password]])
+	@user.remember_me = params[:user][:remember_me]
+	puts "$%%#%%#%#: " + @user.remember_me.to_s
 	
 	if @user&&@user.authenticate(params[:user][:password])
 		flash[:success] = '欢迎来到宁优网:'
