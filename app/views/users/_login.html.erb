@@ -1,7 +1,7 @@
    <% if !signed_in? %>
    <a class="btn btn-link" data-toggle="modal" href="#loginModal">登录</a>&nbsp;
    <a class="btn btn-link" data-toggle="modal" href="#registerModal">注册</a>
-   <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-success btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
+   <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-link btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
 
    <!--login modal-->
    <div id="regSucModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myRegSucLabel" aria-hidden="true">
@@ -46,7 +46,7 @@
                         <%= u.check_box :remember_me,  {} , "true" , "false" %>
                         记住我
                     <% end %>
-                    <%= link_to "忘记密码？", new_password_reset_path, class:"btn btn-link pull-right" %>                    
+                    <%= link_to "忘记密码？", new_password_reset_path, class:"btn btn-link" %>             
                 </div>
             </div>
         </fieldset>
@@ -140,6 +140,6 @@
             <% end  %>
         </ul>
     </div>
-    <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-success btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
+    <%= link_to "留言", new_message_path, html_options = {id:"message-anchor", class:"btn btn-link btn-mini", :'data-toggle'=>"tooltip", :'data-placement'=>"bottom",:'data-original-title'=>"给我们留言，提出您宝贵建议，我们将会认真听取，因为我们立志要做宁夏体验度最好的网站，您的反馈将字如珠玑." } %>
 </div>
 <% end %>

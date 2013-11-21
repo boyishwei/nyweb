@@ -13,7 +13,7 @@ carousel_html += "<a class='carousel-control3 right' href='#image_group_carousel
 //carousel_html += "<%= link_to 'swich_comments', 'comments/', method: :show, remote:true, class:'btn hide' %>";
 $("#image_group_carousel").html(carousel_html);
 $("#image_group_carousel").find(".item:first").addClass("active");
-$("#image_group_carousel").carousel('pause');
+//$("#image_group_carousel").carousel('pause');
 
 $("#comments_area").html("<%= j render partial:'comments/show' %>");
 

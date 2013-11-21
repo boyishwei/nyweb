@@ -31,7 +31,7 @@ $(function(){
 			{alert("请输入正确的手机号码");return;}
 
 			var content = getAuthCode();
-			var url = sendSMSUrl + "&mobile=" + mobile + "&content=【宁优网】验证码:" + content;
+			var url = sendSMSUrl + "&mobile=" + mobile + "&content=验证码:" + content + "【宁优网】";
 			$("#auth_hiddenAuthCode").val(content);
 			//$.post(url, function(){alert(11);});
 			jQuery.getScript(url,function(){alert("短信已发送，请查收!")});

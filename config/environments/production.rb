@@ -59,9 +59,21 @@ Nyweb::Application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
-  config.active_support.deprecation = :notify
+  config.active_support.deprecation = :log
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = { :host => "www.0951good.com:9999" }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'www.0951good.com:9999',
+  user_name:            '0951good',
+  password:             '-pl,)OKM',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 end
