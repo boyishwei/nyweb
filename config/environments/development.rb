@@ -41,7 +41,7 @@ Nyweb::Application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               '192.168.1.109',
+  domain:               'www.0951good.com:9999',
   user_name:            '0951good',
   password:             '-pl,)OKM',
   authentication:       'plain',
