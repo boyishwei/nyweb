@@ -3,12 +3,12 @@ class ImageGroupsController < ApplicationController
   # GET /image_groups.json
   def index
     @category_id = params[:category_id]
-
+    page = params[:page]
     if @category_id == nil
     	@category_id = 1
     end
     
-    @image_groups = ImageGroup.order("weight_factor asc").where(" enabled = true and category_id = '#{@category_id}'").page(1)
+    @image_groups = ImageGroup.order("weight_factor asc").where(" category_id = '#{@category_id}'").page(page)
   end
 
   # GET /image_groups/1
@@ -50,6 +50,7 @@ class ImageGroupsController < ApplicationController
     puts params[:image_group]
     puts params[:image_group][:enabled]
     
+    
     respond_to do |format|
       if @image_group.save
         format.html { redirect_to @image_group, notice: 'Image group was successfully created.' }
@@ -61,6 +62,8 @@ class ImageGroupsController < ApplicationController
         format.js {}
       end
     end
+
+    p @image_group.errors.full_messages
   end
 
   # PUT /image_groups/1
@@ -68,7 +71,8 @@ class ImageGroupsController < ApplicationController
   def update
     @image_group = ImageGroup.find(params[:id])
     puts params[:image_group]
-
+    puts params[:image_group][:promoted]
+    p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     if !params[:images][:removed].blank?
       puts "removed images" + params[:images][:removed]
       removedImages = Image.where(" id in (?)", params[:images][:removed].split(','))

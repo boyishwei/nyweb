@@ -44,7 +44,7 @@ Nyweb::Application.routes.draw do
   match "/update_address" => "users#updateAddress"
   match "/update_phone" => "users#updatePhone"
 
-  match "/admin" => "pub#admin"
+  match "/admin" => "admin#index"
   match "/image_select" => "image_groups#image_select"
   match "/gravatar" => "pub#gravatar"
 

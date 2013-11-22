@@ -1,1 +1,9 @@
-alert(4321);
+<% if @image_group.errors.any? %>
+	$('#subpage-pane').html('<%= j render partial:'form' %>');
+	<% @image_group.errors.each do |attribute, msg| %>
+		$('#control-group-<%= attribute %>').addClass('error');
+	<% end %>
+<% else %>
+	$("#ig-pills>.active>a").click();
+<% end %>
+

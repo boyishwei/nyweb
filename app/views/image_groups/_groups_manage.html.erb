@@ -4,6 +4,7 @@
     <th>组名</th>
     <th>封面图片</th>
     <th>是否生效</th>
+    <th>是否首页展示</th>
     <th>关键字</th>
     <th>图片组描述</th>
     <th>权重<strong class="text-error"><abbr title="权重值将决定图片组显示的先后顺序，权重值越小，显示越靠前"> *</abbr></strong></th>
@@ -15,8 +16,9 @@
   <tr>
     <td><%= image_group.id %></td>
     <td><%= image_group.group_name %></td>
-    <td><%= image_group.cover_image_id %>&nbsp;&nbsp;&nbsp;<%= link_to "指定", root_path %></td>
+    <td><%= image_group.cover_image_id %></td>
     <td><%= (image_group.enabled==true) ? "是" : "否" %></td>
+    <td><%= (image_group.promoted==true) ? "是" : "否" %></td>
     <td><%= image_group.key_word %></td>
     <td><%= image_group.desc %></td>
     <td><%= image_group.weight_factor %></td>
@@ -25,6 +27,7 @@
   </tr>
 <% end %>
 </table>
+<%= paginate @image_groups,:params => {:controller => 'image_groups', :action => 'index'}, :remote => true %>
 
 <br />
 

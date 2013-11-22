@@ -2,38 +2,38 @@
 <% if @image_group.errors.any? %>
 <div id="error_explanation" class="alert alert-error">
   <ul>
-    <% @image_group.errors.full_messages.each do |msg| %>
+    <% @image_group.errors.each do |attribute, msg| %>
     <li><%= msg %></li>
     <% end %>
   </ul>
 </div>
 <% end %>
 
-<div class="field control-group">
+<div id="control-group-group_name" class="field control-group">
   <%= f.label "图组名", class:"control-label" %>
   <div class="controls">
     <%= f.text_field :group_name %>
   </div>
 </div>
-<div class="field control-group">
+<div id="control-group-category_id" class="field control-group">
   <%= f.label "所属分类", class:"control-label" %>
   <div class="controls">
     <%= f.select :category_id,  Category.all.collect {|c| [ c.name, c.id ] }, { selected: (@image_group.category_id.nil?) ?  category_id : @image_group.category_id  } %>
   </div>
 </div>
-<div class="field control-group">
+<div id="control-group-key_word" class="field control-group">
   <%= f.label "关键字", class:"control-label" %>
   <div class="controls">
     <%= f.text_field :key_word %>
   </div>
 </div>
-<div class="field control-group">
+<div id="control-group-desc" class="field control-group">
   <%= f.label "描述", class:"control-label" %>
   <div class="controls">
     <%= f.text_field :desc %>
   </div>
 </div>
-<div class="field control-group">
+<div id="control-group-weight_factor" class="field control-group">
   <%= f.label "权重", class:"control-label" %>
   <div class="controls">
     <%= f.number_field :weight_factor %>
@@ -70,14 +70,18 @@
 
 <div class="field control-group">
   <div class="controls">
-    <%= f.check_box :enabled, { disabled: (true unless !@image_group.id.nil?) }, true, false %>
+    <%= f.check_box :enabled, { disabled: (true unless !@image_group.id.nil?) }, checked_value = "true", unchecked_value = "false" %>
     <span>&nbsp;&nbsp;&nbsp;使之生效</span>
     <strong class="text-error"><abbr title="只能在为该图组选择好图片并且指定封面后才能被置为 生效 状态"> *</abbr></strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.check_box :promoted, { disabled: (true unless !@image_group.id.nil?) }, checked_value = "true", unchecked_value = "false" %>
+    <span>&nbsp;&nbsp;&nbsp;首页展示</span>
   </div>
 </div>
 <div class="actions control-group">
   <div class="controls">
     <%= f.submit "提交", remote:true, class:"btn btn-warning"  %>
+    <button id="ig_form_rtn" type="button" class="btn btn-default">返回</button>
   </div>
 </div>
 <% end %>

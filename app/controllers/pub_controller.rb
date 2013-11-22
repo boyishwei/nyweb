@@ -108,8 +108,9 @@ class PubController < ApplicationController
 	
 	first_image_id = @images.first.id	
 	@comments = @images.first.comments.order("id asc").page(1)
-
+	params[:id]= first_image_id
 	@images.each {|i| puts i.location}
+	#will render showSlideModal.js.erb
   end
  
   def showSlideModalFake

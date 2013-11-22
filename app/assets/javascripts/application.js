@@ -109,6 +109,10 @@ $(function(){
 			$("#cover_image").parent().find("input").val(image_id);
 			$("#select_img_modal").modal('hide');
 		});
+		
+		$("#subpage-pane").on("click", "#ig_form_rtn", function(event){
+                	$("#ig-pills>.active>a").click();
+		});
 });
 
 function disableSMSBtnAndCountDown()
