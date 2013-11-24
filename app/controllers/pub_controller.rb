@@ -17,6 +17,7 @@ class PubController < ApplicationController
 
   def index
  	get_current_user 
+	@groups  = ImageGroup.order("weight_factor asc").where(" enabled = true and promoted = true ").group("category_id").page(1)
   end
 
   def about

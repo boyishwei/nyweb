@@ -55,24 +55,7 @@
     <div class="container modules">
       <legend>优 · 学</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/edu/edu_ad_1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-            <!--<a href="#prompt-slide" class="thumbnail" data-toggle="modal" ><img src="images/edu/edu_ad_1.jpg" alt="prod_show" /></a>-->
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/edu/edu_ad_2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/edu/edu_ad_3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            
-            <%= link_to image_tag("images/edu/edu_ad_4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+          <%= render :partial=>'image_groups' %></div>
       </div>
       <p class="pull-right"><em><%= link_to "更多", education_path %></em></p>
       <hr>
