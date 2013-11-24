@@ -55,7 +55,11 @@
     <div class="container modules">
       <legend>优 · 学</legend>
       <div class="row-fluid">
+        <% if !@gc['优 · 学'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 学'] %>
           <%= render :partial=>'image_groups' %></div>
+        <% end %>
       </div>
       <p class="pull-right"><em><%= link_to "更多", education_path %></em></p>
       <hr>
@@ -67,22 +71,11 @@
     <div class="container modules">
       <legend>优 · 肴</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/diet/1.gif"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/diet/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/diet/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/diet/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 肴'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 肴'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %>
       </div>
       <p class="pull-right"><em><%= link_to "更多", cate_path %></em></p>
       <hr>
@@ -94,22 +87,11 @@
     <div class="container modules">
       <legend>优 · 游</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/travel/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/travel/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/travel/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/travel/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 游'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 游'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %>
       </div>
       <p class="pull-right"><em><%= link_to "更多", tour_path %></em></p>
       <hr>
@@ -121,22 +103,11 @@
     <div class="container modules">
       <legend>优 · 美</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/health/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/health/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/health/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/health/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 美'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 美'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %>        
       </div>
       <p class="pull-right"><em><%= link_to "更多", beauty_path %></em></p>
       <hr>
@@ -148,22 +119,11 @@
     <div class="container modules">
       <legend>优 · 品</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/onlineshop/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/onlineshop/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/onlineshop/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/onlineshop/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 品'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 品'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %>         
       </div>
       <p class="pull-right"><em><%= link_to "更多", fab_path %></em></p>
       <hr>
@@ -177,22 +137,11 @@
     <div class="container modules">
       <legend>优 · 秀</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/witness/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/witness/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/witness/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/witness/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 秀'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 秀'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %>         
       </div>
       <p class="pull-right"><em><%= link_to "更多", show_path %></em></p>
       <hr>
@@ -204,22 +153,11 @@
     <div class="container modules">
       <legend>优 · 居</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span12">
-            <%= link_to image_tag("images/house/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/house/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/house/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/house/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 居'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 居'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %> 
       </div>
       <p class="pull-right"><em><%= link_to "更多", decoration_path %></em></p>
       <hr>
@@ -232,28 +170,11 @@
     <div class="container modules">
       <legend>优 · 惠</legend>
       <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/sos/1.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/sos/2.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/sos/3.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>                      
-        <ul class="thumbnails">
-          <li class="span4">
-            <%= link_to image_tag("images/sos/4.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/sos/5.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-          <li class="span4">
-            <%= link_to image_tag("images/sos/6.jpg"), slide_modal_path, class:"thumbnail", remote:true %>
-          </li>
-        </ul>
+        <% if !@gc['优 · 惠'].nil? %>
+          <!-- get the image_groups -->
+          <% @groups = @gc['优 · 惠'] %>
+          <%= render :partial=>'image_groups' %></div>
+        <% end %> 
       </div>
       <p class="pull-right"><em><%= link_to "更多", promotion_path %></em></p>
       <hr>
