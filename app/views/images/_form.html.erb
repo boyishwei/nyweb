@@ -10,6 +10,15 @@
   <% end %>
 
   <div class="field control-group">
+    <div class="controls">
+      <% if !@image.instance.thumb.url.nil? %>
+        <%= image_tag  @image.instance.thumb.url %>
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+  <div class="field control-group">
     <%= f.label "图片名称", class:"control-label" %>
     <div class="controls">
       <%= f.text_field :image_name %>
@@ -54,13 +63,14 @@
   <div class="field control-group">
     <%= f.label "上传图片", class:"control-label" %>
     <div class="controls">
-      <%= f.file_field :instance, multiple:true %>
+      <%= f.file_field :instance %>
     </div>
   </div>
   <div class="actions control-group">
     <div class="controls">
-      <%= f.submit "提交", class:"btn btn-warning" %>
-      <button id="ig_form_rtn" type="button" class="btn btn-default">返回</button>
+      <%= f.submit "提交",  remote:true, class:"btn btn-warning" %>
+      <%= link_to "返回", conroller:"images", action:"index", remote: true %>      
     </div>
   </div>
 <% end %>
+
