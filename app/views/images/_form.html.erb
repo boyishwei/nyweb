@@ -1,45 +1,66 @@
-<%= form_for(@image) do |f| %>
+<%= form_for(@image, remote:true,  html: { class:"form-horizontal" }) do |f| %>
   <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-error">
       <ul>
-      <% @image.errors.full_messages.each do |msg| %>
+        <% @image.errors.each do |attribute, msg| %>
         <li><%= msg %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image_name %><br />
-    <%= f.text_field :image_name %>
+  <div class="field control-group">
+    <%= f.label "图片名称", class:"control-label" %>
+    <div class="controls">
+      <%= f.text_field :image_name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :group_id %><br />
-    <%= f.number_field :group_id %>
+  <div class="field control-group">
+    <%= f.label "所属组名", class:"control-label" %>
+    <div class="controls">
+      <%= f.number_field :group_id %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :enabled %><br />
-    <%= f.check_box :enabled %>
+  <div class="field control-group">
+    <%= f.label "是否生效", class:"control-label" %>
+    <div class="controls">
+      <%= f.check_box :enabled %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+  <div class="field control-group">
+    <%= f.label "存储位置", class:"control-label" %>
+    <div class="controls">
+      <%= f.text_field :location %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :key_word %><br />
-    <%= f.text_field :key_word %>
+  <div class="field control-group">
+    <%= f.label "关键字", class:"control-label" %>
+    <div class="controls">
+      <%= f.text_field :key_word %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_field :desc %>
+  <div class="field control-group">
+    <%= f.label "图片描述", class:"control-label" %>
+    <div class="controls">
+      <%= f.text_field :desc %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :weight_factor %><br />
-    <%= f.number_field :weight_factor %>
+  <div class="field control-group">
+    <%= f.label "权重因子", class:"control-label" %>
+    <div class="controls">
+      <%= f.number_field :weight_factor %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field control-group">
+    <%= f.label "上传图片", class:"control-label" %>
+    <div class="controls">
+      <%= f.file_field :instance, multiple:true %>
+    </div>
+  </div>
+  <div class="actions control-group">
+    <div class="controls">
+      <%= f.submit "提交", class:"btn btn-warning" %>
+      <button id="ig_form_rtn" type="button" class="btn btn-default">返回</button>
+    </div>
   </div>
 <% end %>

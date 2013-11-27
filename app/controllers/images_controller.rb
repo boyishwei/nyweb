@@ -2,11 +2,12 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
-
+    page = params[:page]
+    @images = Image.page(page).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @images }
+      format.js {}
     end
   end
 
@@ -18,6 +19,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @image }
+      format.js {}
     end
   end
 
@@ -29,6 +31,7 @@ class ImagesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @image }
+      format.js {}
     end
   end
 
@@ -75,9 +78,12 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.destroy
 
+    @images = Image.page(1).per(10)
+
     respond_to do |format|
       format.html { redirect_to images_url }
       format.json { head :no_content }
+      format.js {}
     end
   end
 end

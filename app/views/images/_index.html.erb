@@ -1,0 +1,36 @@
+<div>
+    <h4>所有图片</h4>    
+    <table class="table">
+      <tr>
+        <th>Image id</th>
+        <th>图片名称</th>
+        <th>所属图组</th>
+        <th>是否生效</th>
+        <!-- <th>存储位置</th> -->
+        <th>关键词</th>
+        <th>描述</th>
+        <th>权重因子</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.id %></td>
+        <td><%= image.image_name %></td>
+        <td><% if !image.image_group.nil? %> <%= image.image_group.group_name %> <% end %></td>
+        <td><%= image.enabled %></td>
+       <!--  <td><%= image.location %></td> -->
+        <td><%= image.key_word %></td>
+        <td><%= image.desc %></td>
+        <td><%= image.weight_factor %></td>
+        <!-- <td><%= link_to '查看', image, remote: true %></td> -->
+        <td><%= link_to '编辑', edit_image_path(image), remote: true  %></td>
+        <td><%= link_to '删除', image, remote: true, method: :delete, data: { confirm: '确定删除?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= paginate @images, remote: true, :params => {:controller => 'images', :action => 'index'}, :remote => true %>
+    <%= link_to '新建图片', new_image_path, remote: true, class:"btn btn-warning" %>
+</div>

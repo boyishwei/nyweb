@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container body-filler">
   <% if !signed_in? %>
   <hr>
   <div class="alert alert-error fade in">
@@ -15,12 +15,12 @@
   <hr>
   <div class="tabbable tabs-left">
     <ul class="nav nav-tabs nav-stacked">
-      <li class="active"><a href="#pane1" data-toggle="tab">图片组</a></li>
-      <li><a href="#pane2" data-toggle="tab">图片</a></li>
+      <li><a href="#pane1" data-toggle="tab">图片组</a></li>
+      <li class="active"><a href="#pane2" data-toggle="tab">图片</a></li>
     </ul>
     <div class="tab-content">
 
-      <div id="pane1" class="tab-pane active">
+      <div id="pane1" class="tab-pane">
         <div class="tabbable">
           <ul class="nav nav-pills" id="ig-pills">
             <% if !@categorys.blank? %>
@@ -41,8 +41,8 @@
           </div>
         </div>
       </div>
-      <div id="pane2" class="tab-pane">
-        <%= render "images/index" %>
+      <div id="pane2" class="tab-pane active">
+        sdfasdfasdf
       </div>
     </div>
   </div>
