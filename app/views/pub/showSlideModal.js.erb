@@ -3,7 +3,7 @@ var comments_html = "";
 <% @images.each do |image| %>
 	carousel_html += "	<div class='item pics'>";
 	carousel_html += "		<input class='image_id' type='hidden' value='<%= image.id %>'>";	
-	carousel_html += "		<img src='<%= j asset_path image.location %>'>";
+	carousel_html += "		<img src='<%= j asset_path (image.instance.url || image.location) %>'>";
 	carousel_html += "		<div class='carousel-caption caption'><p><%= image.desc %></p></div>";
 	carousel_html += "	</div>";
 <% end %>

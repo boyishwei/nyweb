@@ -47,7 +47,7 @@
     <%= f.hidden_field :cover_image_id %>
     <span id="cover_image">
       <% if !@image_group.cover_image_id.nil? %>
-        <%= image_tag @image_group.cover.location, size:"100x50" %>
+        <%= image_tag (@image_group.cover.instance.url || @image_group.cover.location), size:"100x50" %>
       <% end  %>
     </span>
     <%= link_to "选择", image_select_path(group_id:@image_group.id), remote:true, class:"btn btn-link" %>
@@ -60,7 +60,7 @@
     <%= hidden_field "images", "added" %>
     <span id="content_image">
       <% @image_group.images.each do |image| %>
-        <%= image_tag image.location, size:"100x50" %>
+        <%= image_tag (image.instance.url || image.location), size:"100x50" %>
       <% end  %>
     </span>
     <%= link_to "选择", image_select_path(group_id:@image_group.id, content:true), remote:true, class:"btn btn-link", 'data-toggle'=>"modal" %>

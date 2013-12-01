@@ -12,6 +12,7 @@ gem 'kaminari'
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem "jquery-fileupload-rails" 
 #gem 'imagemagick'
 #gem 'rails-bootstrap','~> 3.0.0.1'
 #gem 'bootstrap3-rails'

@@ -55,11 +55,11 @@ class ImageGroupsController < ApplicationController
       if @image_group.save
         format.html { redirect_to @image_group, notice: 'Image group was successfully created.' }
         format.json { render json: @image_group, status: :created, location: @image_group }
-        format.js {}
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @image_group.errors, status: :unprocessable_entity }
-        format.js {}
+        format.js
       end
     end
 
@@ -69,7 +69,6 @@ class ImageGroupsController < ApplicationController
   # PUT /image_groups/1
   # PUT /image_groups/1.json
   def update
-    @image_group = ImageGroup.find(params[:id])
     puts params[:image_group]
     puts params[:image_group][:promoted]
     p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -95,7 +94,10 @@ class ImageGroupsController < ApplicationController
       end
     end    
 
-    if @image_group.cover_image_id.nil?
+
+    @image_group = ImageGroup.find(params[:id])
+
+    if params[:image_group][:cover_image_id].nil?
       @image_group.errors.add(:nil_cover, "必须指定封面图片才能使该图组生效")
       return
     elsif @image_group.images.nil?

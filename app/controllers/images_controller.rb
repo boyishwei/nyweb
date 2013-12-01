@@ -46,16 +46,30 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(params[:image])
+    #@images = Image.page(1).per(10)
+    
+    #@image.save
+    #respond_to do |format|
+      #format.html # create.html.erb
+      #format.json { render json: @image }
+      #format.js {} #create.js.erb
+    #end
+    
+    respond_to do |format|  
+      if @image.save  
+        format.html {  
+          render :json => [@image.to_json_image].to_json,  
+          :content_type => 'text/html',  
+          :layout => false  
+        }  
+        format.json { render json: {files: [@image.to_json_image]}, status: :created, location: @image }  
+      else  
+        format.html { render action: "new" }  
+        format.json { render json: @image.errors, status: :unprocessable_entity }  
+      end  
+    end  
+	
 
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
-        format.json { render json: @image, status: :created, location: @image }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /images/1

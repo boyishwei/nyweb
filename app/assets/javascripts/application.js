@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+//= require jquery-fileupload 
 
 var sendSMSUrl = "http://api.sms7.com.cn/mt/?uid=ruby&pwd=f2bd8f3d021082f7bc13b1d566c00f67&encode=utf8";
 

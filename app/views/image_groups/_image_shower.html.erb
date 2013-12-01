@@ -3,7 +3,7 @@
 		<% @images.page(i).each do |image| %>
 			<li class="span4 abc">
 				<i data-image-id="<%= image.id %>" <% if image.id == @group.cover_image_id || @contentSelection == 'true' %>class="icon-ok icon-white selected"<% end %>></i>
-				<%= link_to image_tag("#{image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
+				<%= link_to image_tag("#{image.instance.url || image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
 				<!-- a 'mutiple' or 'non-mutiple' class will append to this link for mutiple or non-mutiple image selection, which will be added after the ajax invocation in the unobtrusive js image_select.js.erb -->
 			</li>
 		<% end %>
@@ -17,7 +17,7 @@
 			<% @available_images.page(i).each do |image| %>
 				<li class="span4 abc">
 					<i data-image-id="<%= image.id %>" <% if image.id == @group.cover_image_id %>class="icon-ok icon-white selected"<% end %>></i>
-					<%= link_to image_tag("#{image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
+					<%= link_to image_tag("#{image.instance.url || image.location}"),"#" , class:"thumbnail thumbnail-selection" %>
 					<!-- a 'mutiple' or 'non-mutiple' class will append to this link for mutiple or non-mutiple image selection, which will be added after the ajax invocation in the unobtrusive js image_select.js.erb -->
 				</li>
 			<% end %>
