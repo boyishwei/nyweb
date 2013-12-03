@@ -28,12 +28,13 @@
 					<% end %>
 				</td>
 				<td><%= msg.message %></td>
+				<td>
+					<%= time_ago_in_words(msg.created_at) %>之前
+				</td>
 				<td sytle="text-align:right;">
 					<%= link_to_if signed_in?&&(msg.user_id==current_user.id), "删除", msg, method: :delete, data: { confirm: '确认要删除此掉留言?' }  %>
 				</td>
-				<td>
-					<%= msg.created_at %>
-				</td>
+
 			</tr>
 		<% end  %>
 		</tbody>
