@@ -1,33 +1,36 @@
-<div class="container">
-<h1>Listing users</h1>
+<% if signed_in? && (current_user.admin == true) %>
+    <div class="container">
+    <h1>所有注册用户</h1>
 
-<table>
-  <tr>
-    <th>User name</th>
-    <th>Password</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Address</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <table class="table">
+      <tr>
+        <th>用户名</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-    <td><%= user.password %></td>
-    <td><%= user.email %></td>
-    <td><%= user.phone %></td>
-    <td><%= user.address %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.address %></td>
+        <td><%= link_to '查看', user %></td>
+        <td><%= link_to '编辑', edit_user_path(user) %></td>
+        <td><%= link_to '删除', user, method: :delete, data: { confirm: '确认删除?' } %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<br />
-
-<%= link_to 'New User', new_user_path %>
-</div>
+    <br />
+    </div>
+<% else %>
+    <div class="container" style="height: 600px;">
+        <hr>
+        <div class="alert alert-error">无访问权限</div>
+    </div>
+<% end  %>

@@ -1,3 +1,4 @@
+<% if signed_in? && (current_user.id == @user.id) %>
 <div class="container">
   <hr>
   <div class="tabbable tabs-left" style="height: 500px;">
@@ -217,3 +218,9 @@
     </div>
   </div>
 </div>
+<% else %>
+    <div class="container" style="height: 600px;">
+        <hr>
+        <div class="alert alert-error">你无权问该注册用户个人信息</div>
+    </div>
+<% end  %>
