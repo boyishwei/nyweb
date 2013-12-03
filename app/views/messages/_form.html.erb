@@ -12,8 +12,10 @@
     匿名留言
     <%= check_box "input", "anonymous", {}, "1", "0" %>
   </div>
+  <br>
   <div class="message_form">
     <%= m.submit "完成", class:"btn btn-warning"%>
   </div>
 <% end %>
+  <hr>
 <%=link_to "查看更多其它留言", messages_path%>

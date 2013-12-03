@@ -2,30 +2,85 @@
   <hr>
   <div class="tabbable tabs-left" style="height: 500px;">
     <div class="float-left">
-      <%= gravatar_for @user %>
+      <ul class="thumbnails">
+        <li>
+          <%= link_to(@user, class:"thumbnail") do %>
+            <% if @user.avatar.thumb.url.nil?  %>
+              <%= gravatar_for @user %>
+            <% else %>
+              <%= image_tag @user.avatar.thumb.url %>
+            <% end  %>
+          <% end %>
+        </li>
+      </ul>     
       <div>
-        <em>&nbsp;<%= @user.username %></em> 
-      </div>
-      <div>
-        <%= link_to "更改头像", "http://gravatar.com/emails", class:"btn btn-link" %>  
-      </div>
-      <div>
-        <abbr title="如何使用Gravatar?">
-          <%= link_to "Gravatar?", gravatar_path, class:"btn btn-link" %>
-        </abbr>
-
+        <em>&nbsp;<%= link_to @user.username, user_path(@user) %></em> 
       </div>
     </div>
 
     <ul class="nav nav-tabs nav-stacked">
-      <li class="active"><a href="#pane1" data-toggle="tab">基本信息</a></li>
+      <li class="active"><a href="#avatar" data-toggle="tab">头像设置</a></li>
+      <li><a href="#pane1" data-toggle="tab">基本信息</a></li>
       <li><a href="#pane2" data-toggle="tab">更改密码</a></li>
       <li><a href="#pane3" data-toggle="tab">更改email地址</a></li>
       <li><a href="#pane4" data-toggle="tab">更改手机号码</a></li>
       <li><a href="#pane5" data-toggle="tab">更改地址信息</a></li>
     </ul>
     <div class="tab-content">
-      <div id="pane1" class="tab-pane active">
+      <div id="avatar" class="tab-pane active">
+        <p>本站支持自定义头像，以及Gravatar头像，但我们鼓励您使用
+          <abbr title="什么是Gravatar?"><%= link_to "Gravatar", gravatar_path %></abbr>头像
+        </p>
+        <p>如果你在两种头像均有设定的情况下，我们将优先显示你的自定义头像</p>
+        <h4>自定义头像</h4>
+        <% if flash[:notice] %>
+          <div class="notice alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        
+        <%= form_for(@user, html: {class: "form-horizontal"}) do |u| %>
+          <div class="control-group">
+            <div class="controls">
+              <ul class="thumbnails">
+                <li>
+                  <a href="#" class="thumbnail">
+                    <% if @user.avatar.thumb.url.nil?  %>
+                      <%= image_tag "/assets/images/avatar/avatar.gif" %>
+                    <% else %>
+                      <%= image_tag @user.avatar.thumb.url %>
+                    <% end  %>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>  
+          <div class="control-group">
+            <label class="control-label" for="old_password"><strong class="text-success">头像设置</strong></label>
+            <div class="controls">
+              <span class="btn btn-success fileinput-button">  
+                <i class="icon-plus icon-white"></i>  
+                <span>选择图片...</span>  
+                <%= u.file_field :avatar %>  
+              </span>  
+            </div>
+          </div>  
+          <div class="control-group">
+            <div class="controls">
+              <%= u.submit "提交", class:"btn btn-warning" %>
+            </div>
+          </div>
+          <br>
+          <h4>Gravatar头像</h4>
+          <div>
+            <div class="control-group">
+              <div class="controls">
+                <%= link_to "更改Gravatar头像", "http://gravatar.com/emails", class:"btn btn-success" %> 
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%#= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+      <div id="pane1" class="tab-pane">
         <p id="notice"><%= notice %></p>
 
         <table class="table table-hover">

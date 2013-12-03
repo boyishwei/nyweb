@@ -118,6 +118,7 @@ $(function(){
 
 function disableSMSBtnAndCountDown()
 {
+	$("#user_phone").attr("disabled", "true");
 	$("#sendSMS").attr("disabled","true");
 	cdItvID = setInterval("countDown()", 1000);
 }

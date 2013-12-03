@@ -1,8 +1,13 @@
 <% @comments.each do |comment| %>
-	<p><small>@<%= comment.user.username %>: </small><%= comment.comment %>
+	<p>
+		<% if !comment.user.avatar.mini.url.nil? %>
+			<%= image_tag comment.user.avatar.mini.url %>
+		<% end %>
+		<small>@<%= comment.user.username %>: </small>
+		<%= comment.comment %>
         <% if !current_user.nil? && (comment.user.id == current_user.id) %>
 		<%= link_to '删除', comment, remote:true, method: :delete, data: { confirm: '确认要删除该条评论?'},class:"btn btn-link btn-mini pull-right" %>
         <% end %>
-        </p>
+    </p>
 <% end %>
 <%= paginate @comments, :params => {:controller => 'comments', :action => 'show'}, remote: true %>

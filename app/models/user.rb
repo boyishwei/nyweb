@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :address, :email, :password,:password_confirmation, :phone, :username, :remember_me
+  attr_accessible :address, :email, :password,:password_confirmation, :phone, :username, :remember_me, :avatar
   attr_accessor :remember_me
   has_many :comments
   has_many :leave_messages
+  mount_uploader :avatar, AvatarUploader
 
   #has_secure_password
 
