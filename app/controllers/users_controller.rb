@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+require 'digest'
 include SessionsHelper
 
 # GET /users
@@ -44,15 +44,14 @@ end
 # POST /users.json
 def create
   @user = User.new(params[:user])
-  
-  if params[:auth][:authCode] != params[:auth][:hiddenAuthCode]
+
+  authCode = Digest::MD5.hexdigest params[:auth][:authCode]
+
+  if authCode != params[:auth][:hiddenAuthCode]
     @user.errors.add(:authcode,"短信验证码输入不正确")
-    puts @user.errors.count
-    #respond_to do |format|
-    #format.html { render action: "new" } 
     return
   end
- 
+  
   respond_to do |format|
     if @user.save
       sign_in @user

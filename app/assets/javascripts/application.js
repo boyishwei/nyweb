@@ -17,6 +17,7 @@
 //= require jquery-fileupload 
 
 var sendSMSUrl = "http://api.sms7.com.cn/mt/?uid=ruby&pwd=f2bd8f3d021082f7bc13b1d566c00f67&encode=utf8";
+var validating_phone_number = "";
 
 $(function(){
 		$("#sendSMS").click(function(){
@@ -33,7 +34,7 @@ $(function(){
 
 			var content = getAuthCode();
 			var url = sendSMSUrl + "&mobile=" + mobile + "&content=验证码:" + content + "【宁优网】";
-			$("#auth_hiddenAuthCode").val(content);
+			$("#auth_hiddenAuthCode").val(CryptoJS.MD5(content.toString()));
 			//$.post(url, function(){alert(11);});
 			jQuery.getScript(url,function(){alert("短信已发送，请查收!")});
 			disableSMSBtnAndCountDown();
@@ -114,13 +115,25 @@ $(function(){
 		$("#subpage-pane").on("click", "#ig_form_rtn", function(event){
                 	$("#ig-pills>.active>a").click();
 		});
+
+		$("#user_phone").change(function(){
+			
+		});
 });
 
 function disableSMSBtnAndCountDown()
 {
-	$("#user_phone").attr("disabled", "true");
+	validating_phone_number = $("#user_phone").val();
+	$("#user_phone").attr("readonly", "true");
+	$("#user_phone").bind('change', validatingPhoneMonitor);
 	$("#sendSMS").attr("disabled","true");
 	cdItvID = setInterval("countDown()", 1000);
+}
+
+function validatingPhoneMonitor()
+{
+	alert("已向当前号码发送验证码，不能更改，如果你需要以其他手机注册，请重新打开注册菜单进行注册!");
+	$("#user_phone").val(validating_phone_number);
 }
 
 var cd =  60;
