@@ -56,9 +56,9 @@ zh-CN:
     distance_in_words:
       about_x_hours:
         one: 大约一小时
-        other: 大约 %{count} 小时
+        other: 约 %{count} 小时
       about_x_months:
-        one: 大约一个月
+        one: 一个月
         other: 大约 %{count} 个月
       about_x_years:
         one: 大约一年

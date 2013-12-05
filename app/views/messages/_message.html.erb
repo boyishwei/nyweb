@@ -1,15 +1,36 @@
-<div class="messages">
+<div class="messages" style="position: relative;" >
 	<% messages.each do |msg| %>
+	<div class="message">
 		<div class="avatar pull-left">
-			<% if  !msg.user.avatar.mini.url.nil? %>
-				<%= image_tag msg.user.avatar.mini.url %> 
+			<% if !msg.user_id.nil? %>
+				<% if  !msg.user.avatar.minor.url.nil? %>
+					<%= image_tag msg.user.avatar.minor.url, class:'gravatar' %>
+				<% else  %>
+					<%=  gravatar_for(msg.user, :minor) %>
+				<% end %>
+			<% else %>
+				<%= default_minor_avatar %>
 			<% end %>
 		</div>
 		<div class="info">
-			<%= msg.user.username %>, <%= time_ago_in_words(msg.created_at) %>
+			<span class="name">
+				<% if !msg.user_id.nil? %>
+					<%= msg.user.username %>
+				<% else  %>
+					匿名用户
+				<% end %>
+			</span>
+			<span class="time">
+				, <abbr title="<%= msg.created_at %>"><%= time_ago_in_words(msg.created_at) %>前</abbr>
+			</span>	
 		</div>
-		<div class="message">
+		<div>
 			<p><%= msg.message %></p>
 		</div>
+	</div>
 	<% end  %>
+	<div style="position: absolute; left:50px; top: 700px;">
+		<%= paginate @messages %>
+		<%= link_to "给我们留言", new_message_path, class:"btn btn-success" %>
+	</div>
 </div>

@@ -7,7 +7,7 @@
         <li>
           <%= link_to(@user, class:"thumbnail") do %>
             <% if @user.avatar.thumb.url.nil?  %>
-              <%= gravatar_for @user %>
+              <%= gravatar_for(@user, :thumb) %>
             <% else %>
               <%= image_tag @user.avatar.thumb.url %>
             <% end  %>
