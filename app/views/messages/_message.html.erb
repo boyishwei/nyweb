@@ -1,2 +1,15 @@
-1:x
-
+<div class="messages">
+	<% messages.each do |msg| %>
+		<div class="avatar pull-left">
+			<% if  !msg.user.avatar.mini.url.nil? %>
+				<%= image_tag msg.user.avatar.mini.url %> 
+			<% end %>
+		</div>
+		<div class="info">
+			<%= msg.user.username %>, <%= time_ago_in_words(msg.created_at) %>
+		</div>
+		<div class="message">
+			<p><%= msg.message %></p>
+		</div>
+	<% end  %>
+</div>
