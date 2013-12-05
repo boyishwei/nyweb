@@ -32,7 +32,7 @@
             <% end %>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active" id="subpage-pane">
+            <div class="tab-pane active" id="subpage-pane" style="position: relative;">
               <%= render :partial=>"image_groups/groups_manage", locals:{category_id:1} %>
             </div>
             <div class="tab-pane" id="tab2">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div id="pane2" class="tab-pane">
+      <div id="pane2" class="tab-pane"  style="position: relative;">
         <%= render "images/index" %>
       </div>
     </div>

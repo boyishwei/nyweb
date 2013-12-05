@@ -57,12 +57,13 @@ class ImagesController < ApplicationController
     
     respond_to do |format|  
       if @image.save  
-        format.html {  
-          render :json => [@image.to_json_image].to_json,  
-          :content_type => 'text/html',  
-          :layout => false  
-        }  
-        format.json { render json: {files: [@image.to_json_image]}, status: :created, location: @image }  
+	render :template => "create.js.erb", :formats=>[:js], :handler => [:erb]
+        #format.html {  
+        #  render :json => [@image.to_json_image].to_json,  
+        #  :content_type => 'text/html',  
+        #  :layout => false  
+        #}  
+        #format.json { render json: {files: [@image.to_json_image]}, status: :created, location: @image }  
       else  
         format.html { render action: "new" }  
         format.json { render json: @image.errors, status: :unprocessable_entity }  

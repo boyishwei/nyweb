@@ -1,4 +1,4 @@
-<div>
+<div style="height: 600px;">
     <h4>所有图片</h4>    
     <table class="table">
       <tr>
@@ -31,6 +31,8 @@
       </tr>
     <% end %>
     </table>
-    <%= paginate @images, remote: true, :params => {:controller => 'images', :action => 'index'}, :remote => true %>
-    <%= link_to '新建图片', new_image_path, remote: true, class:"btn btn-warning" %>
+    <div style="position: absolute; left:0px; top: 450px;">
+        <%= paginate @images, remote: true, :params => {:controller => 'images', :action => 'index'}, :remote => true %>
+        <%= link_to '新建图片', new_image_path, remote: true, class:"btn btn-warning" %>
+    </div>
 </div>

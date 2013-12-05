@@ -1,10 +1,7 @@
-$('#nx_focus').unslider({
-          fluid: true,
-          keys: true,
-          dots: true  
-});
-
 $('#registerModal').on('hidden', function () {
+	$(".control-group").removeClass("error");
+	$("#user_phone").removeAttr("readonly");
+	$("#user_phone").unbind("change");
 	$("#error_explanation").html();
 	$("#error_explanation").hide();
 	$("#user_username").val('');
@@ -13,6 +10,7 @@ $('#registerModal').on('hidden', function () {
 	$("#user_email").val('');
 	$("#user_phone").val('');
 	$("#auth_authCode").val('');
+	$("#auth_hiddenAuthCode").val('');
 });
 
 

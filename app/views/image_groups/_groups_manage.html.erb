@@ -1,34 +1,35 @@
-<table class="table">
-  <tr>
-    <th>组id</th>
-    <th>组名</th>
-    <th>封面图片</th>
-    <th>是否生效</th>
-    <th>是否首页展示</th>
-    <th>关键字</th>
-    <th>图片组描述</th>
-    <th>权重<strong class="text-error"><abbr title="权重值将决定图片组显示的先后顺序，权重值越小，显示越靠前"> *</abbr></strong></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div style="height: 400px;">
+    <table class="table">
+      <tr>
+        <th>组id</th>
+        <th>组名</th>
+        <th>封面图片</th>
+        <th>是否生效</th>
+        <th>是否首页展示</th>
+        <th>关键字</th>
+        <th>图片组描述</th>
+        <th>权重<strong class="text-error"><abbr title="权重值将决定图片组显示的先后顺序，权重值越小，显示越靠前"> *</abbr></strong></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% @image_groups.each do |image_group| %>
-  <tr>
-    <td><%= image_group.id %></td>
-    <td><%= image_group.group_name %></td>
-    <td><%= image_group.cover_image_id %></td>
-    <td><%= (image_group.enabled==true) ? "是" : "否" %></td>
-    <td><%= (image_group.promoted==true) ? "是" : "否" %></td>
-    <td><%= image_group.key_word %></td>
-    <td><%= image_group.desc %></td>
-    <td><%= image_group.weight_factor %></td>
-    <td><%= link_to '编辑', edit_image_group_path(image_group), remote:true, class:"btn btn-link" %></td>
-    <td><%= link_to '删除', image_group, remote:true, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-link" %></td>
-  </tr>
-<% end %>
-</table>
-<%= paginate @image_groups,:params => {:controller => 'image_groups', :action => 'index'}, :remote => true %>
-
-<br />
-
-<%= link_to '新建图片组', new_image_group_path(category_id:category_id), remote:true, class:"btn btn-warning" %>
+    <% @image_groups.each do |image_group| %>
+      <tr>
+        <td><%= image_group.id %></td>
+        <td><%= image_group.group_name %></td>
+        <td><%= image_group.cover_image_id %></td>
+        <td><%= (image_group.enabled==true) ? "是" : "否" %></td>
+        <td><%= (image_group.promoted==true) ? "是" : "否" %></td>
+        <td><%= image_group.key_word %></td>
+        <td><%= image_group.desc %></td>
+        <td><%= image_group.weight_factor %></td>
+        <td><%= link_to '编辑', edit_image_group_path(image_group), remote:true, class:"btn btn-link" %></td>
+        <td><%= link_to '删除', image_group, remote:true, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-link" %></td>
+      </tr>
+    <% end %>
+    </table>
+    <div style="position: absolute; left:0px; top: 250px;">
+        <%= paginate @image_groups,:params => {:controller => 'image_groups', :action => 'index'}, :remote => true %>
+        <%= link_to '新建图片组', new_image_group_path(category_id:category_id), remote:true, class:"btn btn-warning" %>
+    </div>
+</div>

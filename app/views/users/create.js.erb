@@ -1,8 +1,15 @@
 <% if @user.errors.any? %>
 	var error_block = "";
+	$(".control-group").removeClass("error");
 	<% @user.errors.each do |attribute, msg| %>
 		error_block +=  '<li><%= msg %></li>';
 		$('#control-group-<%= attribute %>').addClass('error');
+		<% if attribute == :phone %>
+			$("#user_phone").removeAttr("readonly");
+		        $("#user_phone").unbind("change");
+			$("#auth_hiddenAuthCode").val('');
+			$("#auth_authCode").val('');
+		<% end %>
 	<% end %>
 	$("#error_explanation").html("<ul>" + error_block + "</ul>" );
 	$("#error_explanation").show();

@@ -33,10 +33,11 @@ $(function(){
 			{alert("请输入正确的手机号码");return;}
 
 			var content = getAuthCode();
+			alert(content);
 			var url = sendSMSUrl + "&mobile=" + mobile + "&content=验证码:" + content + "【宁优网】";
 			$("#auth_hiddenAuthCode").val(CryptoJS.MD5(content.toString()));
 			//$.post(url, function(){alert(11);});
-			jQuery.getScript(url,function(){alert("短信已发送，请查收!")});
+			//jQuery.getScript(url,function(){alert("短信已发送，请查收!")});
 			disableSMSBtnAndCountDown();
 			});
 

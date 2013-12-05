@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
   end
 	
   def index
-	@messages = Message.page(params[:page])
+	@messages = Message.order('created_at desc').page(params[:page])
 	#@messages.order("id desc")
   end
 	
